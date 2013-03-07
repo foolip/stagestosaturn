@@ -17,4 +17,9 @@ diff = difflib.unified_diff(a, b, lineterm='',
                             fromfile=sys.argv[1],
                             tofile=sys.argv[2])
 for line in diff:
-    print line
+    if line.startswith('-'):
+        print '\033[91m' + line + '\033[0m'
+    elif line.startswith('+'):
+        print '\033[92m' + line + '\033[0m'
+    else:
+        print line

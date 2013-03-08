@@ -8,4 +8,8 @@ forEach(document.querySelectorAll('sup'), function(elm) {
     elm.parentNode.insertBefore(document.createTextNode(' '), elm);
 });
 
+forEach(document.querySelectorAll('font[color="#FFFFFF"]'), function(elm) {
+    elm.textContent = '';
+});
+
 alert(document.body.textContent.replace(/\s/g, ' '))

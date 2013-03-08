@@ -12,13 +12,31 @@ def getwords(path):
 a = getwords(sys.argv[1])
 b = getwords(sys.argv[2])
 
-diff = difflib.unified_diff(a, b, lineterm='',
+diff = difflib.unified_diff(a, b, n=25, lineterm='',
                             fromfile=sys.argv[1],
                             tofile=sys.argv[2])
+
+context = None
+words = []
+
+def printwords():
+    if context is None:
+        return
+    sys.stdout.write({'-': '\033[91m',
+                      '+': '\033[92m'}.get(context, ''))
+    sys.stdout.write(context)
+    sys.stdout.write(' '.join(words))
+    if context in '+-':
+        sys.stdout.write('\033[0m')
+    sys.stdout.write('\n')
+
 for line in diff:
-    if line.startswith('-'):
-        print '\033[91m' + line + '\033[0m'
-    elif line.startswith('+'):
-        print '\033[92m' + line + '\033[0m'
+    word = line[1:]
+    if context is line[0]:
+        words.append(word)
     else:
-        print line
+        printwords()
+        context = line[0]
+        words = [word]
+
+printwords()

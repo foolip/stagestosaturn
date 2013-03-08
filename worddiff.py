@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 #
 # Diff the words of two files, ignoring whitespace.
-# Get words from a web page with
-# javascript:alert(document.body.textContent.replace(/\s/g, ' '))
+# Get words from HTML by including worddiff.js
 
 import difflib
 import sys

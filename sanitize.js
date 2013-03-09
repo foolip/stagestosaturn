@@ -1,5 +1,7 @@
 /* -*- mode: js; js-indent-level: 4; indent-tabs-mode: nil -*- */
 
+'use strict';
+
 function assert(cond, msg) {
     if (!cond) {
         if (!msg) {

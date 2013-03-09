@@ -175,6 +175,7 @@ function sanitize(doc) {
     forEach(all('a[name]'), function(a) {
         // exclude the inline chapter notes
         if (a.name == 'n1' || a.name == 'n2') {
+            a.textContent = ' '; // polyglot compat
             return;
         }
 
@@ -192,6 +193,7 @@ function sanitize(doc) {
         var span = doc.createElement('span');
         span.className = 'newpage';
         span.id = a.name;
+        span.textContent = ' '; // polyglot compat
 
         replace(a, span);
         remove(b);
@@ -206,7 +208,7 @@ window.addEventListener('load', function() {
         remove(iframe);
     });
 
-    // sanitize whitespace a bit (broken because of adjacent text nodes)
+    // sanitize whitespace
     document.body.normalize();
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT,
                                            null, false);
@@ -217,8 +219,8 @@ window.addEventListener('load', function() {
 
     // serialize this document
     remove(document.querySelector('script'));
-    //var xml = new XMLSerializer().serializeToString(document);
-    //xml = html.replace(/.*<html>/, '<!doctype html>\n<html>');
-    var html = '<!doctype html>' + document.documentElement.outerHTML;
+    //var html = document.documentElement.outerHTML;
+    var html = new XMLSerializer().serializeToString(document);
+    html = html.replace(/.*<html/, '<!doctype html>\n<html');
     alert(html);
 });

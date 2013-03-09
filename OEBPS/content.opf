@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="bookid">
+  <metadata>
+    <meta content="cover-image" name="cover"/>
+    <dc:type>Text</dc:type>
+    <dc:identifier id="bookid">stagestosaturnte00bilsrich</dc:identifier>
+    <dc:title>Stages to Saturn : a technological history of the Apollo/Saturn launch vehicles</dc:title>
+    <dc:creator>Bilstein, Roger E</dc:creator>
+    <dc:creator>United States. National Aeronautics and Space Administration. History Office</dc:creator>
+    <dc:description>Includes bibliographical references (p. 493-500) and index</dc:description>
+    <dc:date>1996</dc:date>
+    <dc:subject>Project Apollo (U.S.)</dc:subject>
+    <dc:subject>Saturn Project (U.S.)</dc:subject>
+    <dc:subject>Saturn launch vehicles -- History</dc:subject>
+    <dc:subject>Apollo 11 flight</dc:subject>
+    <dc:subject>Apollo spacecraft</dc:subject>
+    <dc:subject>Lunar landing</dc:subject>
+    <dc:subject>Management planning</dc:subject>
+    <dc:subject>Multidisciplinary research</dc:subject>
+    <dc:subject>Project management</dc:subject>
+    <dc:subject>Saturn launch vehicles</dc:subject>
+    <dc:contributor>Prelinger Library</dc:contributor>
+    <dc:publisher>Washington, DC : National Aeronautics and Space Administration, NASA History Office : For sale by the U.S. G.P.O., Supt. of Docs.</dc:publisher>
+    <dc:language>en</dc:language>
+  </metadata>
+  <manifest>
+    <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="images/cover-image.jpg" id="cover-image" media-type="image/jpeg"/>
+    <item href="leaf0000.html" id="leaf0000" media-type="application/xhtml+xml"/>
+    <item href="intro.html" id="intro" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0001.jpg" id="leaf-image0001" media-type="image/jpeg"/>
+    <item href="leaf0001.html" id="leaf0001" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0002.jpg" id="leaf-image0002" media-type="image/jpeg"/>
+    <item href="leaf0002.html" id="leaf0002" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0004.jpg" id="leaf-image0004" media-type="image/jpeg"/>
+    <item href="leaf0004.html" id="leaf0004" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0005.jpg" id="leaf-image0005" media-type="image/jpeg"/>
+    <item href="leaf0005.html" id="leaf0005" media-type="application/xhtml+xml"/>
+    <item href="part0000.html" id="part0000" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0008.jpg" id="leaf-image0008" media-type="image/jpeg"/>
+    <item href="leaf0008.html" id="leaf0008" media-type="application/xhtml+xml"/>
+    <item href="images/picture0.jpg" id="picture0" media-type="image/jpeg"/>
+    <item href="images/picture1.jpg" id="picture1" media-type="image/jpeg"/>
+    <item href="images/picture2.jpg" id="picture2" media-type="image/jpeg"/>
+    <item href="images/picture3.jpg" id="picture3" media-type="image/jpeg"/>
+    <item href="images/picture4.jpg" id="picture4" media-type="image/jpeg"/>
+    <item href="images/picture5.jpg" id="picture5" media-type="image/jpeg"/>
+    <item href="images/picture6.jpg" id="picture6" media-type="image/jpeg"/>
+    <item href="images/picture7.jpg" id="picture7" media-type="image/jpeg"/>
+    <item href="images/picture8.jpg" id="picture8" media-type="image/jpeg"/>
+    <item href="images/picture9.jpg" id="picture9" media-type="image/jpeg"/>
+    <item href="images/picture10.jpg" id="picture10" media-type="image/jpeg"/>
+    <item href="images/picture11.jpg" id="picture11" media-type="image/jpeg"/>
+    <item href="images/picture12.jpg" id="picture12" media-type="image/jpeg"/>
+    <item href="images/picture13.jpg" id="picture13" media-type="image/jpeg"/>
+    <item href="images/picture14.jpg" id="picture14" media-type="image/jpeg"/>
+    <item href="images/picture15.jpg" id="picture15" media-type="image/jpeg"/>
+    <item href="images/picture16.jpg" id="picture16" media-type="image/jpeg"/>
+    <item href="images/picture17.jpg" id="picture17" media-type="image/jpeg"/>
+    <item href="images/picture18.jpg" id="picture18" media-type="image/jpeg"/>
+    <item href="images/picture19.jpg" id="picture19" media-type="image/jpeg"/>
+    <item href="images/picture20.jpg" id="picture20" media-type="image/jpeg"/>
+    <item href="images/picture21.jpg" id="picture21" media-type="image/jpeg"/>
+    <item href="images/picture22.jpg" id="picture22" media-type="image/jpeg"/>
+    <item href="part0001.html" id="part0001" media-type="application/xhtml+xml"/>
+    <item href="images/picture23.jpg" id="picture23" media-type="image/jpeg"/>
+    <item href="images/picture24.jpg" id="picture24" media-type="image/jpeg"/>
+    <item href="images/picture25.jpg" id="picture25" media-type="image/jpeg"/>
+    <item href="images/picture26.jpg" id="picture26" media-type="image/jpeg"/>
+    <item href="images/picture27.jpg" id="picture27" media-type="image/jpeg"/>
+    <item href="images/picture28.jpg" id="picture28" media-type="image/jpeg"/>
+    <item href="images/picture29.jpg" id="picture29" media-type="image/jpeg"/>
+    <item href="images/picture30.jpg" id="picture30" media-type="image/jpeg"/>
+    <item href="images/picture31.jpg" id="picture31" media-type="image/jpeg"/>
+    <item href="images/picture32.jpg" id="picture32" media-type="image/jpeg"/>
+    <item href="images/picture33.jpg" id="picture33" media-type="image/jpeg"/>
+    <item href="images/picture34.jpg" id="picture34" media-type="image/jpeg"/>
+    <item href="images/picture35.jpg" id="picture35" media-type="image/jpeg"/>
+    <item href="images/picture36.jpg" id="picture36" media-type="image/jpeg"/>
+    <item href="images/picture37.jpg" id="picture37" media-type="image/jpeg"/>
+    <item href="images/picture38.jpg" id="picture38" media-type="image/jpeg"/>
+    <item href="images/picture39.jpg" id="picture39" media-type="image/jpeg"/>
+    <item href="images/picture40.jpg" id="picture40" media-type="image/jpeg"/>
+    <item href="images/picture41.jpg" id="picture41" media-type="image/jpeg"/>
+    <item href="images/picture42.jpg" id="picture42" media-type="image/jpeg"/>
+    <item href="images/picture43.jpg" id="picture43" media-type="image/jpeg"/>
+    <item href="part0002.html" id="part0002" media-type="application/xhtml+xml"/>
+    <item href="images/picture44.jpg" id="picture44" media-type="image/jpeg"/>
+    <item href="images/picture45.jpg" id="picture45" media-type="image/jpeg"/>
+    <item href="images/picture46.jpg" id="picture46" media-type="image/jpeg"/>
+    <item href="images/picture47.jpg" id="picture47" media-type="image/jpeg"/>
+    <item href="images/picture48.jpg" id="picture48" media-type="image/jpeg"/>
+    <item href="images/picture49.jpg" id="picture49" media-type="image/jpeg"/>
+    <item href="images/picture50.jpg" id="picture50" media-type="image/jpeg"/>
+    <item href="images/picture51.jpg" id="picture51" media-type="image/jpeg"/>
+    <item href="images/picture52.jpg" id="picture52" media-type="image/jpeg"/>
+    <item href="images/picture53.jpg" id="picture53" media-type="image/jpeg"/>
+    <item href="images/picture54.jpg" id="picture54" media-type="image/jpeg"/>
+    <item href="images/picture55.jpg" id="picture55" media-type="image/jpeg"/>
+    <item href="images/picture56.jpg" id="picture56" media-type="image/jpeg"/>
+    <item href="images/picture57.jpg" id="picture57" media-type="image/jpeg"/>
+    <item href="images/picture58.jpg" id="picture58" media-type="image/jpeg"/>
+    <item href="images/picture59.jpg" id="picture59" media-type="image/jpeg"/>
+    <item href="images/picture60.jpg" id="picture60" media-type="image/jpeg"/>
+    <item href="images/picture61.jpg" id="picture61" media-type="image/jpeg"/>
+    <item href="images/picture62.jpg" id="picture62" media-type="image/jpeg"/>
+    <item href="images/picture63.jpg" id="picture63" media-type="image/jpeg"/>
+    <item href="images/picture64.jpg" id="picture64" media-type="image/jpeg"/>
+    <item href="images/picture65.jpg" id="picture65" media-type="image/jpeg"/>
+    <item href="images/picture66.jpg" id="picture66" media-type="image/jpeg"/>
+    <item href="part0003.html" id="part0003" media-type="application/xhtml+xml"/>
+    <item href="images/picture67.jpg" id="picture67" media-type="image/jpeg"/>
+    <item href="images/picture68.jpg" id="picture68" media-type="image/jpeg"/>
+    <item href="images/picture69.jpg" id="picture69" media-type="image/jpeg"/>
+    <item href="images/picture70.jpg" id="picture70" media-type="image/jpeg"/>
+    <item href="images/picture71.jpg" id="picture71" media-type="image/jpeg"/>
+    <item href="images/picture72.jpg" id="picture72" media-type="image/jpeg"/>
+    <item href="images/picture73.jpg" id="picture73" media-type="image/jpeg"/>
+    <item href="images/picture74.jpg" id="picture74" media-type="image/jpeg"/>
+    <item href="images/picture75.jpg" id="picture75" media-type="image/jpeg"/>
+    <item href="images/picture76.jpg" id="picture76" media-type="image/jpeg"/>
+    <item href="images/picture77.jpg" id="picture77" media-type="image/jpeg"/>
+    <item href="images/picture78.jpg" id="picture78" media-type="image/jpeg"/>
+    <item href="images/picture79.jpg" id="picture79" media-type="image/jpeg"/>
+    <item href="images/picture80.jpg" id="picture80" media-type="image/jpeg"/>
+    <item href="images/picture81.jpg" id="picture81" media-type="image/jpeg"/>
+    <item href="images/picture82.jpg" id="picture82" media-type="image/jpeg"/>
+    <item href="images/picture83.jpg" id="picture83" media-type="image/jpeg"/>
+    <item href="part0004.html" id="part0004" media-type="application/xhtml+xml"/>
+    <item href="images/picture84.jpg" id="picture84" media-type="image/jpeg"/>
+    <item href="images/picture85.jpg" id="picture85" media-type="image/jpeg"/>
+    <item href="images/picture86.jpg" id="picture86" media-type="image/jpeg"/>
+    <item href="images/picture87.jpg" id="picture87" media-type="image/jpeg"/>
+    <item href="images/picture88.jpg" id="picture88" media-type="image/jpeg"/>
+    <item href="images/picture89.jpg" id="picture89" media-type="image/jpeg"/>
+    <item href="images/picture90.jpg" id="picture90" media-type="image/jpeg"/>
+    <item href="images/picture91.jpg" id="picture91" media-type="image/jpeg"/>
+    <item href="images/picture92.jpg" id="picture92" media-type="image/jpeg"/>
+    <item href="images/picture93.jpg" id="picture93" media-type="image/jpeg"/>
+    <item href="images/picture94.jpg" id="picture94" media-type="image/jpeg"/>
+    <item href="images/picture95.jpg" id="picture95" media-type="image/jpeg"/>
+    <item href="images/picture96.jpg" id="picture96" media-type="image/jpeg"/>
+    <item href="part0005.html" id="part0005" media-type="application/xhtml+xml"/>
+    <item href="images/picture97.jpg" id="picture97" media-type="image/jpeg"/>
+    <item href="images/picture98.jpg" id="picture98" media-type="image/jpeg"/>
+    <item href="images/picture99.jpg" id="picture99" media-type="image/jpeg"/>
+    <item href="images/picture100.jpg" id="picture100" media-type="image/jpeg"/>
+    <item href="images/picture101.jpg" id="picture101" media-type="image/jpeg"/>
+    <item href="images/picture102.jpg" id="picture102" media-type="image/jpeg"/>
+    <item href="images/picture103.jpg" id="picture103" media-type="image/jpeg"/>
+    <item href="images/picture104.jpg" id="picture104" media-type="image/jpeg"/>
+    <item href="images/picture105.jpg" id="picture105" media-type="image/jpeg"/>
+    <item href="images/picture106.jpg" id="picture106" media-type="image/jpeg"/>
+    <item href="images/picture107.jpg" id="picture107" media-type="image/jpeg"/>
+    <item href="images/picture108.jpg" id="picture108" media-type="image/jpeg"/>
+    <item href="images/picture109.jpg" id="picture109" media-type="image/jpeg"/>
+    <item href="images/picture110.jpg" id="picture110" media-type="image/jpeg"/>
+    <item href="images/picture111.jpg" id="picture111" media-type="image/jpeg"/>
+    <item href="images/picture112.jpg" id="picture112" media-type="image/jpeg"/>
+    <item href="part0006.html" id="part0006" media-type="application/xhtml+xml"/>
+    <item href="images/picture113.jpg" id="picture113" media-type="image/jpeg"/>
+    <item href="images/picture114.jpg" id="picture114" media-type="image/jpeg"/>
+    <item href="images/picture115.jpg" id="picture115" media-type="image/jpeg"/>
+    <item href="images/picture116.jpg" id="picture116" media-type="image/jpeg"/>
+    <item href="images/picture117.jpg" id="picture117" media-type="image/jpeg"/>
+    <item href="images/picture118.jpg" id="picture118" media-type="image/jpeg"/>
+    <item href="images/picture119.jpg" id="picture119" media-type="image/jpeg"/>
+    <item href="images/picture120.jpg" id="picture120" media-type="image/jpeg"/>
+    <item href="images/picture121.jpg" id="picture121" media-type="image/jpeg"/>
+    <item href="images/picture122.jpg" id="picture122" media-type="image/jpeg"/>
+    <item href="images/picture123.jpg" id="picture123" media-type="image/jpeg"/>
+    <item href="images/picture124.jpg" id="picture124" media-type="image/jpeg"/>
+    <item href="images/picture125.jpg" id="picture125" media-type="image/jpeg"/>
+    <item href="images/picture126.jpg" id="picture126" media-type="image/jpeg"/>
+    <item href="images/picture127.jpg" id="picture127" media-type="image/jpeg"/>
+    <item href="images/picture128.jpg" id="picture128" media-type="image/jpeg"/>
+    <item href="images/picture129.jpg" id="picture129" media-type="image/jpeg"/>
+    <item href="images/picture130.jpg" id="picture130" media-type="image/jpeg"/>
+    <item href="images/picture131.jpg" id="picture131" media-type="image/jpeg"/>
+    <item href="part0007.html" id="part0007" media-type="application/xhtml+xml"/>
+    <item href="images/picture132.jpg" id="picture132" media-type="image/jpeg"/>
+    <item href="images/picture133.jpg" id="picture133" media-type="image/jpeg"/>
+    <item href="images/picture134.jpg" id="picture134" media-type="image/jpeg"/>
+    <item href="images/picture135.jpg" id="picture135" media-type="image/jpeg"/>
+    <item href="images/picture136.jpg" id="picture136" media-type="image/jpeg"/>
+    <item href="images/picture137.jpg" id="picture137" media-type="image/jpeg"/>
+    <item href="images/picture138.jpg" id="picture138" media-type="image/jpeg"/>
+    <item href="images/picture139.jpg" id="picture139" media-type="image/jpeg"/>
+    <item href="images/picture140.jpg" id="picture140" media-type="image/jpeg"/>
+    <item href="images/picture141.jpg" id="picture141" media-type="image/jpeg"/>
+    <item href="images/picture142.jpg" id="picture142" media-type="image/jpeg"/>
+    <item href="images/picture143.jpg" id="picture143" media-type="image/jpeg"/>
+    <item href="images/picture144.jpg" id="picture144" media-type="image/jpeg"/>
+    <item href="part0008.html" id="part0008" media-type="application/xhtml+xml"/>
+    <item href="images/picture145.jpg" id="picture145" media-type="image/jpeg"/>
+    <item href="part0009.html" id="part0009" media-type="application/xhtml+xml"/>
+    <item href="images/leaf-image0539.jpg" id="leaf-image0539" media-type="image/jpeg"/>
+    <item href="leaf0539.html" id="leaf0539" media-type="application/xhtml+xml"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="leaf0000" linear="no"/>
+    <itemref idref="intro" linear="no"/>
+    <itemref idref="leaf0001" linear="no"/>
+    <itemref idref="leaf0002" linear="no"/>
+    <itemref idref="leaf0004" linear="no"/>
+    <itemref idref="leaf0005" linear="no"/>
+    <itemref idref="part0000"/>
+    <itemref idref="leaf0008" linear="no"/>
+    <itemref idref="part0001"/>
+    <itemref idref="part0002"/>
+    <itemref idref="part0003"/>
+    <itemref idref="part0004"/>
+    <itemref idref="part0005"/>
+    <itemref idref="part0006"/>
+    <itemref idref="part0007"/>
+    <itemref idref="part0008"/>
+    <itemref idref="part0009"/>
+    <itemref idref="leaf0539" linear="no"/>
+  </spine>
+  <guide>
+    <reference href="leaf0000.html" type="cover" title="Front Cover"/>
+    <reference href="leaf0004.html" type="title-page" title="Title Page"/>
+    <reference href="leaf0005.html" type="copyright-page" title="Title Page"/>
+    <reference href="part0000.html" type="text" title="Book"/>
+    <reference href="leaf0008.html" type="toc" title="Title Page"/>
+  </guide>
+</package>

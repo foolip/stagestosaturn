@@ -123,6 +123,12 @@ function sanitize(doc) {
         }
     });
 
+    // convert subscript 2 to Unicode
+    forEach(all('sub'), function(sub) {
+        assert(sub.textContent == '2');
+        replace(sub, doc.createTextNode('\u2082'));
+    });
+
     // convert <body><center><b> to <h1>
     forEach(all('body > center > b:first-child'), function(b) {
         var center = b.parentNode;

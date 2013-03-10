@@ -208,6 +208,9 @@ window.addEventListener('load', function() {
         remove(iframe);
     });
 
+    // remove the script itself
+    remove(document.querySelector('script'));
+
     // sanitize whitespace
     document.body.normalize();
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT,
@@ -218,9 +221,13 @@ window.addEventListener('load', function() {
     }
 
     // serialize this document
-    remove(document.querySelector('script'));
     //var html = document.documentElement.outerHTML;
     var html = new XMLSerializer().serializeToString(document);
-    html = html.replace(/.*<html/, '<!doctype html>\n<html');
-    alert(html);
+    html = html.replace(/.*<html/, '<html').replace('><head', '>\n<head');
+
+    // show the result in a textarea
+    var textarea = document.createElement('textarea');
+    textarea.setAttribute('style', 'width: 400px; height: 400px');
+    textarea.textContent = html;
+    document.body.insertBefore(textarea, document.body.firstChild);
 });

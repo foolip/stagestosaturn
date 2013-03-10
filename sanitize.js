@@ -131,18 +131,6 @@ function sanitize(doc) {
         replace(sub, doc.createTextNode('\u2082'));
     });
 
-    // convert <body><center><b> to <h1>
-    forEach(all('body > center > b:first-child'), function(b) {
-        var center = b.parentNode;
-        if (center.firstChild != b || b.children.length ||
-            center.textContent.trim() != b.textContent.trim()) {
-            return;
-        }
-        var h1 = doc.createElement('h1');
-        moveChildren(b, h1);
-        replace(center, h1);
-    });
-
     // merge adjacent <center> elements
     forEach(all('body > center + center'), function(second) {
         var first = second.previousSibling;

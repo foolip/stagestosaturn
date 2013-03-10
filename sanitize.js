@@ -150,7 +150,6 @@ function sanitize(doc) {
             alert(center.outerHTML);
         }
         assert (hr1.tagName == 'HR');
-        remove(center); return; // FIXME
         remove(hr1);
         remove(hr2);
         var aside = doc.createElement('aside');

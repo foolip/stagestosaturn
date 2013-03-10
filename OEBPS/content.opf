@@ -6,7 +6,7 @@
     <dc:identifier id="bookid">urn:uuid:8cc1ec3e-06c8-49fc-96ee-8a594e834598</dc:identifier>
     <dc:title>Stages to Saturn: A Technological History of the Apollo/Saturn Launch Vehicles</dc:title>
     <dc:creator>Roger E. Bilstein</dc:creator>
-    <dc:date>1980</dc:date>
+    <dc:date>1996</dc:date>
     <dc:publisher>NASA History Office</dc:publisher>
     <dc:language>en</dc:language>
   </metadata>
@@ -14,19 +14,15 @@
     <item href="stylesheet.css" id="css" media-type="text/css"/>
     <item href="cover.jpg" id="cover-image" media-type="image/jpeg"/>
     <item href="cover.html" id="cover" media-type="application/xhtml+xml"/>
-    <item href="intro.html" id="intro" media-type="application/xhtml+xml"/>
-    <item href="part0000.html" id="part0000" media-type="application/xhtml+xml"/>
-    <item href="part0001.html" id="part0001" media-type="application/xhtml+xml"/>
+    <item href="main.html" id="main" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
   </manifest>
   <spine toc="ncx">
     <itemref idref="cover" linear="no"/>
-    <itemref idref="intro" linear="no"/>
-    <itemref idref="part0000"/>
-    <itemref idref="part0001"/>
+    <itemref idref="main"/>
   </spine>
   <guide>
     <reference href="cover.html" type="cover" title="Front Cover"/>
-    <reference href="part0000.html" type="text" title="Book"/>
+    <reference href="main.html" type="text" title="Book"/>
   </guide>
 </package>

@@ -110,7 +110,8 @@ function sanitize(doc) {
     // remove obsolete/invalid attributes
     removeAttributes('body', ['bgcolor']);
     removeAttributes('hr', ['noshade', 'size', 'width']);
-    removeAttributes('img', ['align', 'x-sas-useimageheight',
+    removeAttributes('img', ['align', 'border',
+                             'x-sas-useimageheight',
                              'x-sas-useimagewidth']);
     removeAttributes('p', ['align']); // FIXME
     removeAttributes('table', ['border', 'cellpadding',
@@ -142,7 +143,7 @@ function sanitize(doc) {
         remove(second);
     });
 
-    // convert <center><hr>...<hr></center> to <aside>
+    // convert <center><hr>...<hr></center> to <div class="figure">
     forEach(all('body > center > hr:last-child'), function(hr2) {
         var center = hr2.parentNode;
         var hr1 = center.children[0];
@@ -152,9 +153,14 @@ function sanitize(doc) {
         assert (hr1.tagName == 'HR');
         remove(hr1);
         remove(hr2);
-        var aside = doc.createElement('aside');
-        moveChildren(center, aside);
-        replace(center, aside);
+
+        // remove additional <center> inside
+        forEach(center.querySelectorAll('center'), replaceWithChildren);
+
+        var div = doc.createElement('div');
+        div.className = 'figure';
+        moveChildren(center, div);
+        replace(center, div);
     });
 
     // convert [<a name="12"></a><b>12</b>] to

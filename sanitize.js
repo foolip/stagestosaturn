@@ -191,6 +191,19 @@ function sanitize(doc) {
         replace(a, span);
         remove(b);
     });
+
+    // convert <sup><a href="#1.3">3</a></sup> to footnotes
+    forEach(all('sup > a[href]'), function(a) {
+        remove(a); // FIXME
+    });
+
+    // link to NASA for the high-resolution images (FIXME)
+    forEach(all('a[href] > img'), function(img) {
+        var a = img.parentNode;
+        var href = a.getAttribute('href');
+        assert(href[0] == 'p');
+        a.setAttribute('href', 'http://history.nasa.gov/SP-4206/' + href);
+    });
 }
 
 window.addEventListener('load', function() {
@@ -212,6 +225,40 @@ window.addEventListener('load', function() {
         var node = walker.currentNode;
         node.data = node.data.replace(/\s{2,}/g, '\n');
     }
+
+    // rewrite page IDs (validator wants an XML name)
+    forEach(document.querySelectorAll('.newpage'), function(elm) {
+        if (/^\d+$/.test(elm.id)) {
+            elm.id = 'p' + elm.id;
+        }
+    });
+
+    // rewrite links
+    forEach(document.querySelectorAll('a[href]'), function(a) {
+        var href = a.getAttribute('href');
+        var m = /^(?:(\w+)\.htm)?(?:#([\w.]+))?$/.exec(href);
+        if (!m) {
+            return;
+        }
+        var page = m[1];
+        var frag = m[2];
+
+        if (frag) {
+            // prepend p to page references
+            if (/^\d+$/.test(frag)) {
+                frag = 'p' + frag;
+            }
+            // foo.htm#bar -> #bar
+            href = '#' + frag;
+        } else if (page) {
+            // foo.htm to #foo
+            href = '#' + page;
+        } else {
+            alert(a.outerHTML);
+            return;
+        }
+        a.setAttribute('href', href);
+    });
 
     // serialize this document
     //var html = document.documentElement.outerHTML;

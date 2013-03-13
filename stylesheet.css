@@ -1,18 +1,20 @@
+h1, h2, h3 {
+    margin: 2em 0 1em 0;
+    text-align: center;
+    text-indent: 0;
+}
 h1 {
     font-size: 1.4em;
     page-break-before: right;
-    text-align: center;
 }
 h2 {
     font-size: 1.2em;
     page-break-before: right;
-    text-align: center;
 }
 h3 {
     font-size: 1em;
     font-weight: normal;
     page-break-before: auto;
-    text-align: center;
 }
 .figure {
     border: 2px solid gray;

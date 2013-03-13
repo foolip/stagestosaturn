@@ -267,7 +267,13 @@ window.addEventListener('load', function() {
 
     // show the result in a textarea
     var textarea = document.createElement('textarea');
-    textarea.setAttribute('style', 'width: 400px; height: 400px');
+    textarea.setAttribute('style', 'width: 100%; height: 200px');
     textarea.textContent = html;
     document.body.insertBefore(textarea, document.body.firstChild);
+
+    // make it prettty
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'web.css';
+    document.head.appendChild(link);
 });

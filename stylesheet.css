@@ -26,9 +26,49 @@ h3 {
     margin: auto;
 }
 hr {
-    width: 25%;
-    margin-left: 0;
-    height: 0;
     border: 0;
     border-top: 1px solid black;
+    height: 0;
+    margin-left: 0;
+    width: 25%;
 }
+/* Equipment Comparison table on page 249 */
+#eqcomp {
+    margin: 1em auto;
+    max-width: 100%;
+    page-break-inside: avoid;
+    width: 35em;
+}
+#eqcomp table {
+    border-bottom: 1px solid black;
+    border-spacing: 0;
+    width: 100%;
+}
+#eqcomp caption {
+    font-size: 1.1em;
+    margin: .5em;
+}
+#eqcomp th, #eqcomp td {
+    font-size: 0.9em;
+}
+#eqcomp th {
+    border-bottom: 1px solid black;
+    font-style: italic;
+    font-weight: normal;
+}
+#eqcomp td {
+    text-align: right;
+}
+#eqcomp td:first-child {
+    text-align: left;
+}
+/* FIXME: Aldiko ignores the whole stylesheet due to this:
+@media (min-width: 35em) {
+    #eqcomp td {
+	padding-right: 3em;
+    }
+    #eqcomp td:first-child {
+	padding-left: 3em;
+    }
+}
+*/

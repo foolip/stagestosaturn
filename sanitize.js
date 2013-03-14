@@ -189,9 +189,10 @@ function sanitize(doc) {
         remove(b);
     });
 
-    // convert <sup><a href="#1.3">3</a></sup> to footnotes
-    forEach(all('sup > a[href]'), function(a) {
-        remove(a); // FIXME
+    // convert <b><sup><a href="#1.3">3</a></sup></b> to [3]
+    forEach(all('b > sup > a[href]'), function(a) {
+        a.textContent = '[' + a.textContent + ']';
+        replace(a.parentNode.parentNode, a);
     });
 
     // link to NASA for the high-resolution images (FIXME)

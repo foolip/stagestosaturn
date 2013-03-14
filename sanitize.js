@@ -147,9 +147,6 @@ function sanitize(doc) {
     forEach(all('body > center > hr:last-child'), function(hr2) {
         var center = hr2.parentNode;
         var hr1 = center.children[0];
-        if (hr1.tagName != 'HR') {
-            alert(center.outerHTML);
-        }
         assert (hr1.tagName == 'HR');
         remove(hr1);
         remove(hr2);
@@ -254,8 +251,7 @@ window.addEventListener('load', function() {
             // foo.htm to #foo
             href = '#' + page;
         } else {
-            alert(a.outerHTML);
-            return;
+            assert(false);
         }
         a.setAttribute('href', href);
     });

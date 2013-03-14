@@ -12,7 +12,8 @@ h2 {
     page-break-before: right;
 }
 h3 {
-    font-size: 1em;
+    font-size: 1.2em;
+    font-variant: small-caps;
     font-weight: normal;
     page-break-before: auto;
 }

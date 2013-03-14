@@ -201,6 +201,122 @@ function sanitize(doc) {
         assert(href[0] == 'p');
         a.setAttribute('href', 'http://history.nasa.gov/SP-4206/' + href);
     });
+
+    function quotify(elm) {
+        // split text nodes to isolate " ` ' and collect into an array
+        var walker = doc.createTreeWalker(elm, NodeFilter.SHOW_TEXT,
+                                          null, false);
+        var nodes = [];
+        while (walker.nextNode()) {
+            var node = walker.currentNode;
+            nodes.push(node);
+            if (node.data.length < 2) {
+                continue;
+            }
+            var offset = node.data.search(/["`']/);
+            if (offset == 0) {
+                node.splitText(1);
+            } else if (offset > 0 && offset < node.data.length) {
+                node.splitText(offset);
+            }
+        }
+
+        // make text nodes big and red (for debugging)
+        function mark(node) {
+            /*
+            var span = doc.createElement('span');
+            span.className = 'quote';
+            replace(node, span);
+            span.appendChild(node);
+            */
+        }
+
+        // loop over the text nodes and make them pretty
+        var ls = '\u2018';
+        var rs = '\u2019';
+        var ld = '\u201C';
+        var rd = '\u201D';
+        var opens = null; // opening single quote
+        var opend = null; // opening double quote
+        forEach(nodes, function(node, i) {
+            var c = node.data;
+            if (c.length != 1 || '"`\''.indexOf(c) == -1) {
+                return;
+            }
+
+            // extract the characters before and after c
+            var before = i > 0 ? nodes[i-1].data[nodes[i-1].data.length-1] : ' ';
+            var after = i+1 < nodes.length ? nodes[i+1].data[0] : ' ';
+
+            var wordBefore = /[\w.,;!?\u2019]/.test(before)
+            var wordAfter = /[\w.]/.test(after)
+
+            if (c == '"') {
+                if (!wordBefore && wordAfter) {
+                    c = ld;
+                    if (opend) {
+                        mark(opend);
+                    }
+                    opend = node;
+                } else if (wordBefore && !wordAfter) {
+                    c = rd;
+                    if (!opend) {
+                        mark(node);
+                    }
+                    opend = null;
+                } else {
+                    // " in the middle of a word?
+                    mark(node);
+                }
+            } else if (c == '`') {
+                if (!wordBefore && wordAfter) {
+                    c = ls;
+                    if (opens || !opend) {
+                        mark(node);
+                    }
+                    opens = node;
+                } else {
+                    // ` on the run?
+                    mark(node);
+                }
+            } else if (c == "'") {
+                if (wordBefore && wordAfter) {
+                    // an apostrophe
+                    c = rs;
+                } else if (!wordBefore && wordAfter) {
+                    c = ls;
+                    if (opens || !opend) {
+                        mark(node);
+                    }
+                    opens = node;
+                } else if (wordBefore && !wordAfter) {
+                    c = rs;
+                    if (before == 's') {
+                        // probably plural possessive, don't close
+                    } else {
+                        if (!opens || !opend) {
+                            mark(node);
+                        }
+                        opens = null;
+                    }
+                } else {
+                    // ' floating free?
+                    mark(node);
+                }
+            }
+
+            node.data = c;
+        });
+
+        if (opens) {
+            mark(opens);
+        }
+        if (opend) {
+            mark(opend);
+        }
+    }
+
+    forEach(all('h1, h2, h3, p, .figure'), quotify);
 }
 
 window.addEventListener('load', function() {

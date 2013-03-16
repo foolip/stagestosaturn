@@ -113,18 +113,9 @@ function sanitize(doc) {
     removeAttributes('img', ['align', 'border',
                              'x-sas-useimageheight',
                              'x-sas-useimagewidth']);
-    removeAttributes('p', ['align']); // FIXME
     removeAttributes('table', ['border', 'cellpadding',
                                'cellspacing', 'summary']);
     removeAttributes('td', ['height', 'valign', 'width']);
-
-    // convert <b><hr> to just <hr>
-    forEach(all('b > hr'), function(hr) {
-        var b = hr.parentNode;
-        if (isSpace(b.textContent)) {
-            replace(b, hr);
-        }
-    });
 
     // convert subscript 2 to Unicode
     forEach(all('sub'), function(sub) {
@@ -163,12 +154,6 @@ function sanitize(doc) {
     // convert [<a name="12"></a><b>12</b>] to
     // <span class="newpage" id="12"></span>
     forEach(all('a[name]'), function(a) {
-        // exclude the inline chapter notes
-        if (a.name == 'n1' || a.name == 'n2') {
-            a.textContent = ' '; // polyglot compat
-            return;
-        }
-
         var b = a.nextSibling;
         var prevText = a.previousSibling;
         var nextText = b.nextSibling;

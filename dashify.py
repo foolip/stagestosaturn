@@ -61,7 +61,7 @@ def dashify(path):
     for i in range(len(lines)):
         line = lines[i]
 
-        anchors = re.findall(r'NAME="(\w+)"', line)
+        anchors = re.findall(r'NAME="([^"]+)"', line)
         if anchors:
             anchor = anchors[-1]
 

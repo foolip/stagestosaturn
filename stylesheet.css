@@ -25,15 +25,21 @@ a {
     text-decoration: none;
 }
 .figure {
-    border: 2px solid gray;
-    margin: 1em;
-    padding: 1em;
+    margin: 1em 0;
     page-break-inside: avoid;
     text-align: center;
 }
 .figure img {
-    display: block;
-    margin: auto;
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+}
+.figure .caption {
+    font-style: italic;
+    font-size: 0.95em;
+    margin: 0.1em 2em;
+    text-align: center;
+    text-indent: 0;
 }
 hr {
     border: 0;

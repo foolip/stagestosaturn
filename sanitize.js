@@ -123,34 +123,6 @@ function sanitize(doc) {
         replace(sub, doc.createTextNode('\u2082'));
     });
 
-    // merge adjacent <center> elements
-    forEach(all('body > center + center'), function(second) {
-        var first = second.previousSibling;
-        while (first.tagName != 'CENTER') {
-            first = first.previousSibling;
-        }
-        assert(first.tagName == 'CENTER');
-        moveChildren(second, first);
-        remove(second);
-    });
-
-    // convert <center><hr>...<hr></center> to <div class="figure">
-    forEach(all('body > center > hr:last-child'), function(hr2) {
-        var center = hr2.parentNode;
-        var hr1 = center.children[0];
-        assert (hr1.tagName == 'HR');
-        remove(hr1);
-        remove(hr2);
-
-        // remove additional <center> inside
-        forEach(center.querySelectorAll('center'), replaceWithChildren);
-
-        var div = doc.createElement('div');
-        div.className = 'figure';
-        moveChildren(center, div);
-        replace(center, div);
-    });
-
     // convert [<a name="12"></a><b>12</b>] to
     // <span class="newpage" id="12"></span>
     forEach(all('a[name]'), function(a) {
@@ -178,14 +150,6 @@ function sanitize(doc) {
     forEach(all('b > sup > a[href]'), function(a) {
         a.textContent = '[' + a.textContent + ']';
         replace(a.parentNode.parentNode, a);
-    });
-
-    // link to NASA for the high-resolution images (FIXME)
-    forEach(all('a[href] > img'), function(img) {
-        var a = img.parentNode;
-        var href = a.getAttribute('href');
-        assert(href[0] == 'p');
-        a.setAttribute('href', 'http://history.nasa.gov/SP-4206/' + href);
     });
 
     function quotify(elm) {

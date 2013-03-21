@@ -198,8 +198,8 @@ function sanitize(doc) {
             var before = i > 0 ? nodes[i-1].data[nodes[i-1].data.length-1] : ' ';
             var after = i+1 < nodes.length ? nodes[i+1].data[0] : ' ';
 
-            var wordBefore = /[\w.,;!?\u2019]/.test(before)
-            var wordAfter = /[\w.]/.test(after)
+            var wordBefore = /[\w.,;!?\u2019\u2026]/.test(before);
+            var wordAfter = /[\w.\u2026]/.test(after);
 
             if (c == '"') {
                 if (!wordBefore && wordAfter) {

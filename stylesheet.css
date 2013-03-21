@@ -73,18 +73,10 @@ hr {
     font-weight: normal;
 }
 #eqcomp td {
-    text-align: right;
-}
-#eqcomp td:first-child {
+    padding-left: 1em;
     text-align: left;
 }
-/* FIXME: Aldiko ignores the whole stylesheet due to this:
-@media (min-width: 35em) {
-    #eqcomp td {
-	padding-right: 3em;
-    }
-    #eqcomp td:first-child {
-	padding-left: 3em;
-    }
+#eqcomp td + td {
+    padding-right: 1em;
+    text-align: right;
 }
-*/

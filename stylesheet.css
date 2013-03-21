@@ -48,9 +48,15 @@ hr {
     margin-left: 0;
     width: 25%;
 }
+table {
+    margin: 1em 0;
+}
+td {
+    vertical-align: top;
+}
 /* Equipment Comparison table on page 249 */
 #eqcomp {
-    margin: 1em auto;
+    margin: auto;
     max-width: 100%;
     page-break-inside: avoid;
     width: 35em;

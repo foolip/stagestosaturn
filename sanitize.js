@@ -154,6 +154,11 @@ function sanitize(doc) {
     // convert [<a name="12"></a><b>12</b>] to
     // <span class="newpage" id="12"></span>
     forEach(all('a[name]'), function(a) {
+        if (/^\d+\.\d+$/.test(a.name)) {
+            // looks like a note anchor
+            return;
+        }
+
         var b = a.nextSibling;
         var prevText = a.previousSibling;
         var nextText = b.nextSibling;

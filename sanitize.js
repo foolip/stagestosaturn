@@ -126,6 +126,11 @@ function sanitize(doc) {
     // convert [<a name="12"></a><b>12</b>] to
     // <span class="newpage" id="12"></span>
     forEach(all('a[name]'), function(a) {
+        if (/^\d+\.\d+$/.test(a.name)) {
+            // looks like a note anchor
+            return;
+        }
+
         var b = a.nextSibling;
         var prevText = a.previousSibling;
         var nextText = b.nextSibling;
@@ -268,74 +273,3 @@ function sanitize(doc) {
 
     forEach(all('h1, h2, h3, p, .figure'), quotify);
 }
-
-window.addEventListener('load', function() {
-    // replace iframes with their sanitized content
-    forEach(document.querySelectorAll('iframe'), function(iframe) {
-        sanitize(iframe.contentDocument);
-        moveChildren(iframe.contentDocument.body, document.body);
-        remove(iframe);
-    });
-
-    // remove the script itself
-    remove(document.querySelector('script'));
-
-    // sanitize whitespace
-    document.body.normalize();
-    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT,
-                                           null, false);
-    while (walker.nextNode()) {
-        var node = walker.currentNode;
-        node.data = node.data.replace(/\s{2,}/g, '\n');
-    }
-
-    // rewrite page IDs (validator wants an XML name)
-    forEach(document.querySelectorAll('.newpage'), function(elm) {
-        if (/^\d+$/.test(elm.id)) {
-            elm.id = 'p' + elm.id;
-        }
-    });
-
-    // rewrite links
-    forEach(document.querySelectorAll('a[href]'), function(a) {
-        var href = a.getAttribute('href');
-        var m = /^(?:(\w+)\.htm)?(?:#([\w.]+))?$/.exec(href);
-        if (!m) {
-            return;
-        }
-        var page = m[1];
-        var frag = m[2];
-
-        if (frag) {
-            // prepend p to page references
-            if (/^\d+$/.test(frag)) {
-                frag = 'p' + frag;
-            }
-            // foo.htm#bar -> #bar
-            href = '#' + frag;
-        } else if (page) {
-            // foo.htm to #foo
-            href = '#' + page;
-        } else {
-            assert(false);
-        }
-        a.setAttribute('href', href);
-    });
-
-    // serialize this document
-    //var html = document.documentElement.outerHTML;
-    var html = new XMLSerializer().serializeToString(document);
-    html = html.replace(/.*<html/, '<html').replace('><head', '>\n<head');
-
-    // show the result in a textarea
-    var textarea = document.createElement('textarea');
-    textarea.setAttribute('style', 'width: 100%; height: 200px');
-    textarea.textContent = html;
-    document.body.insertBefore(textarea, document.body.firstChild);
-
-    // make it prettty
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'web.css';
-    document.head.appendChild(link);
-});

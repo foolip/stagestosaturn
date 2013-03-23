@@ -121,7 +121,7 @@ function sanitize(doc) {
     });
 
     // convert [<a name="12"></a><b>12</b>] to
-    // <span class="newpage" id="12"></span>
+    // <span class="page" id="12"></span>
     forEach(all('a[name]'), function(a) {
         if (/^\d+\.\d+$/.test(a.name)) {
             // looks like a note anchor
@@ -140,7 +140,7 @@ function sanitize(doc) {
         nextText.data = nextText.data.substr(1);
 
         var span = doc.createElement('span');
-        span.className = 'newpage';
+        span.className = 'page';
         span.id = a.name;
         span.textContent = ' '; // polyglot compat
 

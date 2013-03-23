@@ -11,6 +11,19 @@ if [ ! -e OEBPS/main.html ]; then
     exit 1
 fi
 
-cp cover.jpg stylesheet.css p*.jpg OEBPS/
+cp stylesheet.css OEBPS/
+
+# resize large images; copy the small ones
+WIDTH=768
+HEIGHT=1024
+identify -format "%f %w %h\n" cover.jpg p*.jpg | grep jpg | while read src w h; do
+    dst="OEBPS/$src"
+    if [ $w -gt $WIDTH -o $h -gt $HEIGHT ]; then
+	convert $src -resize "${WIDTH}x${HEIGHT}" $dst
+    else
+	cp $src $dst
+    fi
+done
+
 zip -X stagestosaturn.epub mimetype
 zip -rg stagestosaturn.epub META-INF OEBPS -x \*~ \*.DS_Store \*.gitignore

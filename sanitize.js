@@ -154,6 +154,30 @@ function sanitize(doc) {
         replace(a.parentNode.parentNode, a);
     });
 
+    // rewrite IDs to please XML (cannot start with a digit)
+    function xmlid(id) {
+        if (/^\d+$/.test(id)) {
+            // page reference
+            return 'p' + id;
+        } else if (/^\d+\.\d+$/.test(id)) {
+            // note reference
+            return 'n' + id;
+        } else {
+            assert(isNaN(parseInt(id)), id + ' is not a valid XML ID');
+            return id;
+        }
+    }
+    forEach(doc.querySelectorAll('[id]'), function(elm) {
+        elm.id = xmlid(elm.id);
+    });
+    forEach(doc.querySelectorAll('a[href]'), function(a) {
+        var parts = a.getAttribute('href').split('#');
+        if (parts.length == 2) {
+            parts[1] = xmlid(parts[1]);
+        }
+        a.setAttribute('href', parts.join('#'));
+    });
+
     // give each figure an ID based on its (first) image
     forEach(all('.figure'), function(fig) {
         fig.id = fig.querySelector('img').getAttribute('src')
@@ -275,6 +299,12 @@ function sanitize(doc) {
     }
 
     forEach(all('h1, h2, h3, p, .figure'), quotify);
+
+    // make it prettty
+    var link = doc.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'stylesheet.css';
+    doc.head.appendChild(link);
 
     // element whitelist check
     var whitelist = [

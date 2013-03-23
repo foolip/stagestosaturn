@@ -63,9 +63,6 @@ function sanitize(doc) {
         elm.style.border = '3px dotted ' + color;
     }
 
-    // <x-sas-window> contains everything in <body>
-    replaceWithChildren(first('x-sas-window'));
-
     // remove header and footer
     remove(first('dl'));
     remove(first('body > center:last-of-type'));

@@ -7,8 +7,6 @@ import sys
 
 for path in sys.argv[1:]:
     def filter(line):
-        if 'X-SAS-WINDOW' in line:
-            return '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">'
         if 'X-SAS-UseImage' in line:
             line = re.sub(r'X-SAS-UseImage(Width|Height) ?', '', line).rstrip()
         return line

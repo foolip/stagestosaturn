@@ -5,9 +5,11 @@ h1, h2, h3 {
 }
 h1 {
     font-size: 1.4em;
+    margin-top: 30%;
 }
 h2 {
     font-size: 1.2em;
+    margin-top: 30%;
 }
 h3 {
     font-size: 1.2em;

@@ -337,3 +337,27 @@ function sanitize(doc) {
                elm.tagName + ' not in whitelist');
     });
 }
+
+function serialize(doc) {
+    // remove the scripts
+    forEach(doc.querySelectorAll('script'), remove);
+
+    // sanitize whitespace
+    doc.normalize();
+    var walker = doc.createTreeWalker(doc, NodeFilter.SHOW_TEXT,
+                                      null, false);
+    while (walker.nextNode()) {
+        var node = walker.currentNode;
+        node.data = node.data.replace(/\s{2,}/g, '\n');
+    }
+
+    // add boilerplate
+    doc.documentElement.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    var meta = doc.querySelector('meta');
+    meta.content = 'application/xhtml+xml; charset=utf-8';
+
+    // XML like it's 1999
+    var html = new XMLSerializer().serializeToString(doc);
+    html = html.replace(/.*<html/, '<html');
+    return html;
+}

@@ -5,11 +5,9 @@ h1, h2, h3 {
 }
 h1 {
     font-size: 1.4em;
-    page-break-before: right;
 }
 h2 {
     font-size: 1.2em;
-    page-break-before: right;
 }
 h3 {
     font-size: 1.2em;

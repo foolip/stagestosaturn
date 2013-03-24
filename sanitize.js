@@ -275,4 +275,35 @@ function sanitize(doc) {
     }
 
     forEach(all('h1, h2, h3, p, .figure'), quotify);
+
+    // element whitelist check
+    var whitelist = [
+        'a',
+        'blockquote',
+        'br',
+        'caption',
+        'div',
+        'h1',
+        'h2',
+        'h3',
+        'hr',
+        'i',
+        'img',
+        'li',
+        'ol',
+        'p',
+        'script',
+        'span',
+        'sup',
+        'table',
+        'tbody',
+        'td',
+        'th',
+        'thead',
+        'tr',
+        'ul'];
+    forEach(doc.body.querySelectorAll('*'), function(elm) {
+        assert(whitelist.indexOf(elm.tagName.toLowerCase()) != -1,
+               elm.tagName + ' not in whitelist');
+    });
 }

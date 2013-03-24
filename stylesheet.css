@@ -17,7 +17,7 @@ h3 {
     font-weight: normal;
     page-break-before: auto;
 }
-p {
+p, li {
     text-align: justify;
 }
 a {

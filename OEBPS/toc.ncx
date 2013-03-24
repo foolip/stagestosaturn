@@ -20,144 +20,144 @@
       <navLabel>
         <text>Front Cover</text>
       </navLabel>
-      <content src="cover.html"/>
+      <content src="cover.htm"/>
     </navPoint>
     <navPoint id="foreword">
       <navLabel>
         <text>Foreword</text>
       </navLabel>
-      <content src="main.html#foreword"/>
+      <content src="foreword.htm"/>
     </navPoint>
     <navPoint id="preface">
       <navLabel>
         <text>Preface</text>
       </navLabel>
-      <content src="main.html#preface"/>
+      <content src="preface.htm"/>
     </navPoint>
     <navPoint id="acknowl">
       <navLabel>
         <text>Acknowledgments</text>
       </navLabel>
-      <content src="main.html#acknowl"/>
+      <content src="acknowl.htm"/>
     </navPoint>
     <navPoint id="part1">
       <navLabel>
         <text>I. Prologue</text>
       </navLabel>
-      <content src="main.html#part1"/>
+      <content src="part1.htm"/>
       <navPoint id="ch1">
         <navLabel>
           <text>1. Concepts and Origins</text>
         </navLabel>
-        <content src="main.html#ch1"/>
+        <content src="ch1.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part2">
       <navLabel>
         <text>II. The Saturn Building Blocks</text>
       </navLabel>
-      <content src="main.html#part2"/>
+      <content src="part2.htm"/>
       <navPoint id="ch2">
         <navLabel>
           <text>2. Aerospace Alphabet: ABMA, ARPA, MSFC</text>
         </navLabel>
-        <content src="main.html#ch2"/>
+        <content src="ch2.htm"/>
       </navPoint>
       <navPoint id="ch3">
         <navLabel>
           <text>3. Missions, Modes, and Manufacturing</text>
         </navLabel>
-        <content src="main.html#ch3"/>
+        <content src="ch3.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part3">
       <navLabel>
         <text>III. Fire, Smoke, and Thunder: The Engines</text>
       </navLabel>
-      <content src="main.html#part3"/>
+      <content src="part3.htm"/>
       <navPoint id="ch4">
         <navLabel>
           <text>4. Conventional Cryogenics: H-1 and F-1</text>
         </navLabel>
-        <content src="main.html#ch4"/>
+        <content src="ch4.htm"/>
       </navPoint>
       <navPoint id="ch5">
         <navLabel>
           <text>5. Unconventional Cryogenics: RL-10 and J-2</text>
         </navLabel>
-        <content src="main.html#ch5"/>
+        <content src="ch5.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part4">
       <navLabel>
         <text>IV. Building the Saturn V</text>
       </navLabel>
-      <content src="main.html#part4"/>
+      <content src="part4.htm"/>
       <navPoint id="ch6">
         <navLabel>
           <text>6. From the S-IV to the S-IVB</text>
         </navLabel>
-        <content src="main.html#ch6"/>
+        <content src="ch6.htm"/>
       </navPoint>
       <navPoint id="ch7">
         <navLabel>
           <text>7. The Lower Stages: S-IC and S-II</text>
         </navLabel>
-        <content src="main.html#ch7"/>
+        <content src="ch7.htm"/>
       </navPoint>
       <navPoint id="ch8">
         <navLabel>
           <text>8. From Checkout to Launch: The Quintessential Computer</text>
         </navLabel>
-        <content src="main.html#ch8"/>
+        <content src="ch8.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part5">
       <navLabel>
         <text>V. Coordination: Men and Machines</text>
       </navLabel>
-      <content src="main.html#part5"/>
+      <content src="part5.htm"/>
       <navPoint id="ch9">
         <navLabel>
           <text>9. Managing Saturn</text>
         </navLabel>
-        <content src="main.html#ch9"/>
+        <content src="ch9.htm"/>
       </navPoint>
       <navPoint id="ch10">
         <navLabel>
           <text>10. The Logistics Tangle</text>
         </navLabel>
-        <content src="main.html#ch10"/>
+        <content src="ch10.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part6">
       <navLabel>
         <text>VI. Step by Step</text>
       </navLabel>
-      <content src="main.html#part6"/>
+      <content src="part6.htm"/>
       <navPoint id="ch11">
         <navLabel>
           <text>11. Qualifying the Cluster Concept</text>
         </navLabel>
-        <content src="main.html#ch11"/>
+        <content src="ch11.htm"/>
       </navPoint>
       <navPoint id="ch12">
         <navLabel>
           <text>12. The Giant Leap</text>
         </navLabel>
-        <content src="main.html#ch12"/>
+        <content src="ch12.htm"/>
       </navPoint>
     </navPoint>
     <navPoint id="part7">
       <navLabel>
         <text>VII. Epilogue</text>
       </navLabel>
-      <content src="main.html#part7"/>
+      <content src="part7.htm"/>
       <navPoint id="ch13">
         <navLabel>
           <text>13. Legacies</text>
         </navLabel>
-        <content src="main.html#ch13"/>
+        <content src="ch13.htm"/>
       </navPoint>
     </navPoint>
   </navMap>

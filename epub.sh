@@ -6,11 +6,6 @@ cd "$(dirname $0)"
 
 rm -f stagestosaturn.epub
 
-if [ ! -e OEBPS/main.html ]; then
-    echo "main.html is missing"
-    exit 1
-fi
-
 cp stylesheet.css OEBPS/
 
 # resize large images; copy the small ones

@@ -13,8 +13,30 @@
   <manifest>
     <item href="stylesheet.css" id="css" media-type="text/css"/>
     <item href="cover.jpg" id="cover-image" media-type="image/jpeg"/>
-    <item href="cover.html" id="cover" media-type="application/xhtml+xml"/>
-    <item href="main.html" id="main" media-type="application/xhtml+xml"/>
+    <item href="cover.htm" id="cover" media-type="application/xhtml+xml"/>
+    <item href="foreword.htm" id="foreword" media-type="application/xhtml+xml"/>
+    <item href="preface.htm" id="preface" media-type="application/xhtml+xml"/>
+    <item href="acknowl.htm" id="acknowl" media-type="application/xhtml+xml"/>
+    <item href="part1.htm" id="part1" media-type="application/xhtml+xml"/>
+    <item href="ch1.htm" id="ch1" media-type="application/xhtml+xml"/>
+    <item href="part2.htm" id="part2" media-type="application/xhtml+xml"/>
+    <item href="ch2.htm" id="ch2" media-type="application/xhtml+xml"/>
+    <item href="ch3.htm" id="ch3" media-type="application/xhtml+xml"/>
+    <item href="part3.htm" id="part3" media-type="application/xhtml+xml"/>
+    <item href="ch4.htm" id="ch4" media-type="application/xhtml+xml"/>
+    <item href="ch5.htm" id="ch5" media-type="application/xhtml+xml"/>
+    <item href="part4.htm" id="part4" media-type="application/xhtml+xml"/>
+    <item href="ch6.htm" id="ch6" media-type="application/xhtml+xml"/>
+    <item href="ch7.htm" id="ch7" media-type="application/xhtml+xml"/>
+    <item href="ch8.htm" id="ch8" media-type="application/xhtml+xml"/>
+    <item href="part5.htm" id="part5" media-type="application/xhtml+xml"/>
+    <item href="ch9.htm" id="ch9" media-type="application/xhtml+xml"/>
+    <item href="ch10.htm" id="ch10" media-type="application/xhtml+xml"/>
+    <item href="part6.htm" id="part6" media-type="application/xhtml+xml"/>
+    <item href="ch11.htm" id="ch11" media-type="application/xhtml+xml"/>
+    <item href="ch12.htm" id="ch12" media-type="application/xhtml+xml"/>
+    <item href="part7.htm" id="part7" media-type="application/xhtml+xml"/>
+    <item href="ch13.htm" id="ch13" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
     <item href="p100a.jpg" id="p100a" media-type="image/jpeg"/>
     <item href="p100b.jpg" id="p100b" media-type="image/jpeg"/>
@@ -189,10 +211,28 @@
   </manifest>
   <spine toc="ncx">
     <itemref idref="cover" linear="no"/>
-    <itemref idref="main"/>
+    <itemref idref="foreword"/>
+    <itemref idref="preface"/>
+    <itemref idref="acknowl"/>
+    <itemref idref="part1"/>
+    <itemref idref="ch1"/>
+    <itemref idref="part2"/>
+    <itemref idref="ch2"/>
+    <itemref idref="ch3"/>
+    <itemref idref="part3"/>
+    <itemref idref="ch4"/>
+    <itemref idref="ch5"/>
+    <itemref idref="part4"/>
+    <itemref idref="ch6"/>
+    <itemref idref="ch7"/>
+    <itemref idref="ch8"/>
+    <itemref idref="part5"/>
+    <itemref idref="ch9"/>
+    <itemref idref="ch10"/>
+    <itemref idref="part6"/>
+    <itemref idref="ch11"/>
+    <itemref idref="ch12"/>
+    <itemref idref="part7"/>
+    <itemref idref="ch13"/>
   </spine>
-  <guide>
-    <reference href="cover.html" type="cover" title="Front Cover"/>
-    <reference href="main.html" type="text" title="Book"/>
-  </guide>
 </package>

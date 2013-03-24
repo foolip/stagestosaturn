@@ -37,6 +37,8 @@
     <item href="ch12.htm" id="ch12" media-type="application/xhtml+xml"/>
     <item href="part7.htm" id="part7" media-type="application/xhtml+xml"/>
     <item href="ch13.htm" id="ch13" media-type="application/xhtml+xml"/>
+    <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
+    <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
     <item href="p100a.jpg" id="p100a" media-type="image/jpeg"/>
     <item href="p100b.jpg" id="p100b" media-type="image/jpeg"/>
@@ -234,5 +236,7 @@
     <itemref idref="ch12"/>
     <itemref idref="part7"/>
     <itemref idref="ch13"/>
+    <itemref idref="notes"/>
+    <itemref idref="author"/>
   </spine>
 </package>

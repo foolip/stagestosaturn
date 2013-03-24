@@ -160,5 +160,17 @@
         <content src="ch13.htm"/>
       </navPoint>
     </navPoint>
+    <navPoint id="notes">
+      <navLabel>
+        <text>Notes</text>
+      </navLabel>
+      <content src="notes.htm"/>
+    </navPoint>
+    <navPoint id="author">
+      <navLabel>
+        <text>The Author</text>
+      </navLabel>
+      <content src="author.htm"/>
+    </navPoint>
   </navMap>
 </ncx>

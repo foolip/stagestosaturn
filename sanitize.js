@@ -298,7 +298,7 @@ function sanitize(doc) {
         }
     }
 
-    forEach(all('h1, h2, h3, p, .figure'), quotify);
+    forEach(all('h1, h2, h3, li, p, .figure'), quotify);
 
     // make it prettty
     var link = doc.createElement('link');

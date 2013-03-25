@@ -19,8 +19,9 @@ window.addEventListener('load', function() {
         Array.prototype.forEach.call(list, func);
     }
 
-    function showSize(img) {
-        img.title = img.naturalWidth + '\u00D7' + img.naturalHeight;
+    function setTitle(img) {
+        img.title = img.src.substr(img.src.lastIndexOf('/') + 1) + ' ' +
+                    img.naturalWidth + '\u00D7' + img.naturalHeight;
     }
 
     forEach(document.querySelectorAll('.figure'), function(fig) {
@@ -32,11 +33,11 @@ window.addEventListener('load', function() {
             var imgNew = imgOld.cloneNode();
             imgOld.addEventListener('load', function() {
                 imgNew.height = imgOld.naturalHeight;
-                showSize(imgOld);
+                setTitle(imgOld);
             });
             imgNew.addEventListener('load', function() {
                 fig.classList.add('done');
-                showSize(imgNew);
+                setTitle(imgNew);
             });
             imgOld.src = imgOld.src.replace('.jpg', '.old.jpg');
             imgNew.src = imgNew.src.replace('.jpg', '.new.jpg');

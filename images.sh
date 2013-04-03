@@ -69,5 +69,5 @@ for img in p*.jpg; do
 done
 
 git diff --name-only $COMMIT -- p*.jpg | while read img; do
-    git show HEAD:$img > "$DIR/${img%.jpg}.new.jpg"
+    ./resize.sh $img "$DIR/${img%.jpg}.new.jpg" 3000 3000
 done

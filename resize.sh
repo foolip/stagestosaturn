@@ -17,7 +17,7 @@ identify -format "%w %h" "$src" | while read w h; do
 	args="-crop $(($w-$left-$right))x$(($h-$top-$bottom))+$left+$top"
     fi
     if [ -n "$args" -o $w -gt $maxw -o $h -gt $maxh ]; then
-	convert "$src" $args +repage -resize "${maxw}x${maxh}>" "$dst"
+	convert "$src" $args +repage -resize "${maxw}x${maxh}>" -quality 90 "$dst"
     else
 	cp "$src" "$dst"
     fi

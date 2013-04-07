@@ -1,1 +1,1 @@
--gaussian-blur 3x1 -resize 50%
+-unsharp 0x3 -resize 50%

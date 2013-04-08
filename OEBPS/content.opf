@@ -14,6 +14,7 @@
     <item href="stylesheet.css" id="css" media-type="text/css"/>
     <item href="cover.jpg" id="cover-image" media-type="image/jpeg"/>
     <item href="cover.htm" id="cover" media-type="application/xhtml+xml"/>
+    <item href="to.htm" id="to" media-type="application/xhtml+xml"/>
     <item href="foreword.htm" id="foreword" media-type="application/xhtml+xml"/>
     <item href="preface.htm" id="preface" media-type="application/xhtml+xml"/>
     <item href="acknowl.htm" id="acknowl" media-type="application/xhtml+xml"/>
@@ -213,6 +214,7 @@
   </manifest>
   <spine toc="ncx">
     <itemref idref="cover" linear="no"/>
+    <itemref idref="to"/>
     <itemref idref="foreword"/>
     <itemref idref="preface"/>
     <itemref idref="acknowl"/>

@@ -64,7 +64,7 @@ EOF
 awk '/<DIV CLASS="figure"/, /^<\/DIV/' \
     ch{1,2,3,4,5,6,7,8,9,10,11,12,13}.htm >> $DIR/images.htm
 
-for img in p*.jpg; do
+git ls-tree --name-only $COMMIT -- p*.jpg | while read img; do
     git show $COMMIT:$img > "$DIR/${img%.jpg}.old.jpg"
 done
 

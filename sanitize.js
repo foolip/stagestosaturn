@@ -178,12 +178,6 @@ function sanitize(doc) {
         a.setAttribute('href', parts.join('#'));
     });
 
-    // give each figure an ID based on its (first) image
-    forEach(all('.figure'), function(fig) {
-        fig.id = fig.querySelector('img').getAttribute('src')
-            .replace(/^p/, 'fig').replace(/\.jpg$/, '');
-    });
-
     function quotify(elm) {
         // split text nodes to isolate " ` ' and collect into an array
         var walker = doc.createTreeWalker(elm, NodeFilter.SHOW_TEXT,

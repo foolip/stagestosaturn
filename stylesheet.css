@@ -41,6 +41,9 @@ a {
     text-align: center;
     text-indent: 0;
 }
+.figure .caption i {
+    font-style: normal;
+}
 hr {
     border: 0;
     border-top: 1px solid black;

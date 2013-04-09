@@ -40,6 +40,7 @@
     <item href="ch13.htm" id="ch13" media-type="application/xhtml+xml"/>
     <item href="apps.htm" id="apps" media-type="application/xhtml+xml"/>
     <item href="app-a.htm" id="app-a" media-type="application/xhtml+xml"/>
+    <item href="app-b.htm" id="app-b" media-type="application/xhtml+xml"/>
     <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
@@ -233,6 +234,7 @@
     <itemref idref="ch13"/>
     <itemref idref="apps"/>
     <itemref idref="app-a"/>
+    <itemref idref="app-b"/>
     <itemref idref="notes"/>
     <itemref idref="author"/>
   </spine>

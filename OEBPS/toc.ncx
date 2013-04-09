@@ -171,6 +171,12 @@
         </navLabel>
         <content src="app-a.htm"/>
       </navPoint>
+      <navPoint id="app-b">
+        <navLabel>
+          <text>Appendix B—Saturn V Prelaunch–Launch Sequence</text>
+        </navLabel>
+        <content src="app-b.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

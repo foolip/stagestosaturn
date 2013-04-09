@@ -58,34 +58,3 @@ table {
 td {
     vertical-align: top;
 }
-/* Equipment Comparison table on page 249 */
-#eqcomp {
-    margin: auto;
-    max-width: 100%;
-    page-break-inside: avoid;
-    width: 35em;
-}
-#eqcomp table {
-    border-bottom: 1px solid black;
-    width: 100%;
-}
-#eqcomp caption {
-    font-size: 1.1em;
-    margin: .5em;
-}
-#eqcomp th, #eqcomp td {
-    font-size: 0.9em;
-}
-#eqcomp th {
-    border-bottom: 1px solid black;
-    font-style: italic;
-    font-weight: normal;
-}
-#eqcomp td {
-    padding-left: 1em;
-    text-align: left;
-}
-#eqcomp td + td {
-    padding-right: 1em;
-    text-align: right;
-}

@@ -52,6 +52,7 @@ hr {
     width: 25%;
 }
 table {
+    border-spacing: 0;
     margin: 1em 0;
 }
 td {
@@ -66,7 +67,6 @@ td {
 }
 #eqcomp table {
     border-bottom: 1px solid black;
-    border-spacing: 0;
     width: 100%;
 }
 #eqcomp caption {

@@ -160,6 +160,18 @@
         <content src="ch13.htm"/>
       </navPoint>
     </navPoint>
+    <navPoint id="apps">
+      <navLabel>
+        <text>Appendixes</text>
+      </navLabel>
+      <content src="apps.htm"/>
+      <navPoint id="app-a">
+        <navLabel>
+          <text>Appendix A—Schematic of Saturn V</text>
+        </navLabel>
+        <content src="app-a.htm"/>
+      </navPoint>
+    </navPoint>
     <navPoint id="notes">
       <navLabel>
         <text>Notes</text>

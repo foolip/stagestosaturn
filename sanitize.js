@@ -298,7 +298,13 @@ function sanitize(doc) {
     var link = doc.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'stylesheet.css';
-    doc.head.appendChild(link);
+    var style = first('head > style');
+    if (style) {
+        doc.head.insertBefore(link, style);
+        doc.head.insertBefore(doc.createTextNode('\n'), style);
+    } else {
+        doc.head.appendChild(link);
+    }
 
     // element whitelist check
     var whitelist = [

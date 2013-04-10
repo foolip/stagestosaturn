@@ -207,6 +207,12 @@
         </navLabel>
         <content src="app-g.htm"/>
       </navPoint>
+      <navPoint id="app-h">
+        <navLabel>
+          <text>Appendix H—MSFC Personnel During Apollo-Saturn</text>
+        </navLabel>
+        <content src="app-h.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

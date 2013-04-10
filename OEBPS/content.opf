@@ -46,6 +46,7 @@
     <item href="app-e.htm" id="app-e" media-type="application/xhtml+xml"/>
     <item href="app-f.htm" id="app-f" media-type="application/xhtml+xml"/>
     <item href="app-g.htm" id="app-g" media-type="application/xhtml+xml"/>
+    <item href="app-h.htm" id="app-h" media-type="application/xhtml+xml"/>
     <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
@@ -192,7 +193,12 @@
     <item href="p444.jpg" id="p444" media-type="image/jpeg"/>
     <item href="p445.jpg" id="p445" media-type="image/jpeg"/>
     <item href="p4467.jpg" id="p4467" media-type="image/jpeg"/>
+    <item href="p450.jpg" id="p450" media-type="image/jpeg"/>
+    <item href="p451.jpg" id="p451" media-type="image/jpeg"/>
+    <item href="p452.jpg" id="p452" media-type="image/jpeg"/>
+    <item href="p453.jpg" id="p453" media-type="image/jpeg"/>
     <item href="p454.jpg" id="p454" media-type="image/jpeg"/>
+    <item href="p455.jpg" id="p455" media-type="image/jpeg"/>
     <item href="p46.jpg" id="p46" media-type="image/jpeg"/>
     <item href="p49.jpg" id="p49" media-type="image/jpeg"/>
     <item href="p60.jpg" id="p60" media-type="image/jpeg"/>
@@ -253,6 +259,7 @@
     <itemref idref="app-e"/>
     <itemref idref="app-f"/>
     <itemref idref="app-g"/>
+    <itemref idref="app-h"/>
     <itemref idref="notes"/>
     <itemref idref="author"/>
   </spine>

@@ -292,7 +292,8 @@ function sanitize(doc) {
         }
     }
 
-    forEach(all('h1, h2, h3, li, p, .figure'), quotify);
+    forEach(all('h1, h2, h3, li, p, .figure, th, td, dt, dd'), quotify);
+    assert(doc.body.textContent.search(/["`']/) == -1, 'not enough quotify');
 
     // make it prettty
     var link = doc.createElement('link');
@@ -312,7 +313,10 @@ function sanitize(doc) {
         'blockquote',
         'br',
         'caption',
+        'dd',
         'div',
+        'dl',
+        'dt',
         'h1',
         'h2',
         'h3',

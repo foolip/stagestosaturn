@@ -44,6 +44,7 @@
     <item href="app-c.htm" id="app-c" media-type="application/xhtml+xml"/>
     <item href="app-d.htm" id="app-d" media-type="application/xhtml+xml"/>
     <item href="app-e.htm" id="app-e" media-type="application/xhtml+xml"/>
+    <item href="app-f.htm" id="app-f" media-type="application/xhtml+xml"/>
     <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
@@ -184,6 +185,7 @@
     <item href="p419.jpg" id="p419" media-type="image/jpeg"/>
     <item href="p422.jpg" id="p422" media-type="image/jpeg"/>
     <item href="p43.jpg" id="p43" media-type="image/jpeg"/>
+    <item href="p439.jpg" id="p439" media-type="image/jpeg"/>
     <item href="p442.jpg" id="p442" media-type="image/jpeg"/>
     <item href="p443.jpg" id="p443" media-type="image/jpeg"/>
     <item href="p444.jpg" id="p444" media-type="image/jpeg"/>
@@ -248,6 +250,7 @@
     <itemref idref="app-c"/>
     <itemref idref="app-d"/>
     <itemref idref="app-e"/>
+    <itemref idref="app-f"/>
     <itemref idref="notes"/>
     <itemref idref="author"/>
   </spine>

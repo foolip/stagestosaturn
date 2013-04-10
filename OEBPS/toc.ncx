@@ -195,6 +195,12 @@
         </navLabel>
         <content src="app-e.htm"/>
       </navPoint>
+      <navPoint id="app-f">
+        <navLabel>
+          <text>Appendix F—Location of Remaining Saturn Hardware</text>
+        </navLabel>
+        <content src="app-f.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

@@ -201,6 +201,12 @@
         </navLabel>
         <content src="app-f.htm"/>
       </navPoint>
+      <navPoint id="app-g">
+        <navLabel>
+          <text>Appendix G—NASA Organization During Apollo-Saturn</text>
+        </navLabel>
+        <content src="app-g.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

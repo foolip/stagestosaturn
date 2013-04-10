@@ -45,6 +45,7 @@
     <item href="app-d.htm" id="app-d" media-type="application/xhtml+xml"/>
     <item href="app-e.htm" id="app-e" media-type="application/xhtml+xml"/>
     <item href="app-f.htm" id="app-f" media-type="application/xhtml+xml"/>
+    <item href="app-g.htm" id="app-g" media-type="application/xhtml+xml"/>
     <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
@@ -251,6 +252,7 @@
     <itemref idref="app-d"/>
     <itemref idref="app-e"/>
     <itemref idref="app-f"/>
+    <itemref idref="app-g"/>
     <itemref idref="notes"/>
     <itemref idref="author"/>
   </spine>

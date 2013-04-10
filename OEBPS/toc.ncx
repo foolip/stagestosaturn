@@ -177,6 +177,12 @@
         </navLabel>
         <content src="app-b.htm"/>
       </navPoint>
+      <navPoint id="app-c">
+        <navLabel>
+          <text>Appendix C—Saturn Flight History</text>
+        </navLabel>
+        <content src="app-c.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

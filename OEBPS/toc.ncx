@@ -183,6 +183,12 @@
         </navLabel>
         <content src="app-c.htm"/>
       </navPoint>
+      <navPoint id="app-d">
+        <navLabel>
+          <text>Appendix D—Saturn R&amp;D Funding History</text>
+        </navLabel>
+        <content src="app-d.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

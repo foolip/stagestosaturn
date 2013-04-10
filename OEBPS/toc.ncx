@@ -189,6 +189,12 @@
         </navLabel>
         <content src="app-d.htm"/>
       </navPoint>
+      <navPoint id="app-e">
+        <navLabel>
+          <text>Appendix E—Saturn V Subcontractors</text>
+        </navLabel>
+        <content src="app-e.htm"/>
+      </navPoint>
     </navPoint>
     <navPoint id="notes">
       <navLabel>

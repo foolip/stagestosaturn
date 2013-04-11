@@ -272,4 +272,7 @@
     <itemref idref="index"/>
     <itemref idref="author"/>
   </spine>
+  <guide>
+    <reference href="cover.htm" title="Cover" type="cover"/>
+  </guide>
 </package>

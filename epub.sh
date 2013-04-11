@@ -9,6 +9,7 @@ rm -f stagestosaturn.epub
 cp stylesheet.css OEBPS/
 
 for img in cover.jpg p*.jpg; do
+    echo "resizing: $img"
     ./resize.sh "$img" "OEBPS/$img" 768 1024
 done
 

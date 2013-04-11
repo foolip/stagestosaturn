@@ -22,6 +22,12 @@
       </navLabel>
       <content src="cover.htm"/>
     </navPoint>
+    <navPoint id="contents">
+      <navLabel>
+        <text>Contents</text>
+      </navLabel>
+      <content src="contents.htm"/>
+    </navPoint>
     <navPoint id="foreword">
       <navLabel>
         <text>Foreword</text>

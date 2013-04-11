@@ -50,6 +50,7 @@
     <item href="app-h.htm" id="app-h" media-type="application/xhtml+xml"/>
     <item href="notes.htm" id="notes" media-type="application/xhtml+xml"/>
     <item href="sources.htm" id="sources" media-type="application/xhtml+xml"/>
+    <item href="index.htm" id="index" media-type="application/xhtml+xml"/>
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
     <item href="p100a.jpg" id="p100a" media-type="image/jpeg"/>
@@ -266,6 +267,7 @@
     <itemref idref="app-h"/>
     <itemref idref="notes"/>
     <itemref idref="sources"/>
+    <itemref idref="index"/>
     <itemref idref="author"/>
   </spine>
 </package>

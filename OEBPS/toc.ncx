@@ -226,6 +226,12 @@
       </navLabel>
       <content src="sources.htm"/>
     </navPoint>
+    <navPoint id="index">
+      <navLabel>
+        <text>Index</text>
+      </navLabel>
+      <content src="index.htm"/>
+    </navPoint>
     <navPoint id="author">
       <navLabel>
         <text>The Author</text>

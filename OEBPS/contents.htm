@@ -8,17 +8,11 @@ line-height: 1.5;
 }
 .toc-top, .toc-part {
 font-variant: small-caps;
-margin-left: 3em;
 }
-.toc-chapter {
-margin-left: 6em;
-}
-.toc-part span, .toc-chapter span {
-display: block;
-margin-left: -3em;
-position: absolute;
+.toc-num {
+padding-left: 1em;
+padding-right: 0.5em;
 text-align: right;
-width: 2.5em;
 }
 ul {
 padding-left: 2em;
@@ -31,40 +25,42 @@ text-indent: -2em;
 </head>
 <body>
 <h1>Contents</h1>
-<div class="toc-top"><a href="foreword.htm">Foreword</a></div>
-<div class="toc-top"><a href="preface.htm">Preface</a></div>
-<div class="toc-top"><a href="acknowl.htm">Acknowledgments</a></div>
-<div class="toc-part"><span>I.</span> <a href="part1.htm">Prologue</a></div>
-<div class="toc-chapter"><span>1.</span> <a href="ch1.htm">Concepts and Origins</a></div>
-<div class="toc-part"><span>II.</span> <a href="part2.htm">The Saturn Building Blocks</a></div>
-<div class="toc-chapter"><span>2.</span> <a href="ch2.htm">Aerospace Alphabet: ABMA, ARPA, MSFC</a></div>
-<div class="toc-chapter"><span>3.</span> <a href="ch3.htm">Missions, Modes, and Manufacturing</a></div>
-<div class="toc-part"><span>III.</span> <a href="part3.htm">Fire, Smoke, and Thunder: The Engines</a></div>
-<div class="toc-chapter"><span>4.</span> <a href="ch4.htm">Conventional Cryogenics: The H-1 and the F-1</a></div>
-<div class="toc-chapter"><span>5.</span> <a href="ch5.htm">Unconventional Cryogenics: RL-10 and J-2</a></div>
-<div class="toc-part"><span>IV.</span> <a href="part4.htm">Building the Saturn V</a></div>
-<div class="toc-chapter"><span>6.</span> <a href="ch6.htm">From the S-IV to the S-IVB</a></div>
-<div class="toc-chapter"><span>7.</span> <a href="ch7.htm">The Lower Stages: S-IC and S-II</a></div>
-<div class="toc-chapter"><span>8.</span> <a href="ch8.htm">From Checkout to Launch: The Quintessential Computer</a></div>
-<div class="toc-part"><span>V.</span> <a href="part5.htm">Coordination: Men and Machines</a></div>
-<div class="toc-chapter"><span>9.</span> <a href="ch9.htm">Managing Saturn</a></div>
-<div class="toc-chapter"><span>10.</span> <a href="ch10.htm">The Logistics Tangle</a></div>
-<div class="toc-part"><span>VI.</span> <a href="part6.htm">Step by Step</a></div>
-<div class="toc-chapter"><span>11.</span> <a href="ch11.htm">Qualifying the Cluster Concept</a></div>
-<div class="toc-chapter"><span>12.</span> <a href="ch12.htm">The Giant Leap</a></div>
-<div class="toc-part"><span>VII.</span> <a href="part7.htm">Epilogue</a></div>
-<div class="toc-chapter"><span>13.</span> <a href="ch13.htm">Legacies</a></div>
-<div class="toc-top"><a href="app-a.htm">Appendix A—Schematic of Saturn V</a></div>
-<div class="toc-top"><a href="app-b.htm">Appendix B—Saturn V Prelaunch–Launch Sequence</a></div>
-<div class="toc-top"><a href="app-c.htm">Appendix C—Saturn Flight History</a></div>
-<div class="toc-top"><a href="app-d.htm">Appendix D—Saturn R&amp;D Funding History</a></div>
-<div class="toc-top"><a href="app-e.htm">Appendix E—Saturn V Contractors</a></div>
-<div class="toc-top"><a href="app-f.htm">Appendix F—Location of Remaining Saturn Hardware</a></div>
-<div class="toc-top"><a href="app-g.htm">Appendix G—NASA Organization During Apollo-Saturn</a></div>
-<div class="toc-top"><a href="app-h.htm">Appendix H—MSFC Personnel During Apollo-Saturn</a></div>
-<div class="toc-top"><a href="notes.htm">Notes</a></div>
-<div class="toc-top"><a href="sources.htm">Sources and Research Material</a></div>
-<div class="toc-top"><a href="index.htm">Index</a></div>
+<table>
+<tbody><tr class="toc-top"><td> </td><td colspan="2"><a href="foreword.htm">Foreword</a></td></tr>
+<tr class="toc-top"><td> </td><td colspan="2"><a href="preface.htm">Preface</a></td></tr>
+<tr class="toc-top"><td> </td><td colspan="2"><a href="acknowl.htm">Acknowledgments</a></td></tr>
+<tr class="toc-part"><td class="toc-num">I.</td><td colspan="2"><a href="part1.htm">Prologue</a></td></tr>
+<tr class="toc-chapter"><td> </td><td class="toc-num">1.</td><td><a href="ch1.htm">Concepts and Origins</a></td></tr>
+<tr class="toc-part"><td class="toc-num">II.</td><td colspan="2"><a href="part2.htm">The Saturn Building Blocks</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">2.</td><td><a href="ch2.htm">Aerospace Alphabet: ABMA, ARPA, MSFC</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">3.</td><td><a href="ch3.htm">Missions, Modes, and Manufacturing</a>
+</td></tr><tr class="toc-part"><td class="toc-num">III.</td><td colspan="2"><a href="part3.htm">Fire, Smoke, and Thunder: The Engines</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">4.</td><td><a href="ch4.htm">Conventional Cryogenics: The H-1 and the F-1</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">5.</td><td><a href="ch5.htm">Unconventional Cryogenics: RL-10 and J-2</a>
+</td></tr><tr class="toc-part"><td class="toc-num">IV.</td><td colspan="2"><a href="part4.htm">Building the Saturn V</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">6.</td><td><a href="ch6.htm">From the S-IV to the S-IVB</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">7.</td><td><a href="ch7.htm">The Lower Stages: S-IC and S-II</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">8.</td><td><a href="ch8.htm">From Checkout to Launch: The Quintessential Computer</a>
+</td></tr><tr class="toc-part"><td class="toc-num">V.</td><td colspan="2"><a href="part5.htm">Coordination: Men and Machines</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">9.</td><td><a href="ch9.htm">Managing Saturn</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">10.</td><td><a href="ch10.htm">The Logistics Tangle</a>
+</td></tr><tr class="toc-part"><td class="toc-num">VI.</td><td colspan="2"><a href="part6.htm">Step by Step</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">11.</td><td><a href="ch11.htm">Qualifying the Cluster Concept</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">12.</td><td><a href="ch12.htm">The Giant Leap</a>
+</td></tr><tr class="toc-part"><td class="toc-num">VII.</td><td colspan="2"><a href="part7.htm">Epilogue</a>
+</td></tr><tr class="toc-chapter"><td> </td><td class="toc-num">13.</td><td><a href="ch13.htm">Legacies</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-a.htm">Appendix A—Schematic of Saturn V</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-b.htm">Appendix B—Saturn V Prelaunch–Launch Sequence</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-c.htm">Appendix C—Saturn Flight History</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-d.htm">Appendix D—Saturn R&amp;D Funding History</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-e.htm">Appendix E—Saturn V Contractors</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-f.htm">Appendix F—Location of Remaining Saturn Hardware</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-g.htm">Appendix G—NASA Organization During Apollo-Saturn</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="app-h.htm">Appendix H—MSFC Personnel During Apollo-Saturn</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="notes.htm">Notes</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="sources.htm">Sources and Research Material</a>
+</td></tr><tr class="toc-top"><td> </td><td colspan="2"><a href="index.htm">Index</a>
+</td></tr></tbody></table>
 <h2>Illustrations</h2>
 <ul>
 <li><a href="pageii.htm">Frontispiece—the Saturn V at LC-39</a>

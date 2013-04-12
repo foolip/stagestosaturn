@@ -15,6 +15,7 @@
     <item href="cover.jpg" id="cover-image" media-type="image/jpeg"/>
     <item href="cover.htm" id="cover" media-type="application/xhtml+xml"/>
     <item href="pageii.htm" id="pageii" media-type="application/xhtml+xml"/>
+    <item href="pageiii.htm" id="pageiii" media-type="application/xhtml+xml"/>
     <item href="to.htm" id="to" media-type="application/xhtml+xml"/>
     <item href="contents.htm" id="contents" media-type="application/xhtml+xml"/>
     <item href="foreword.htm" id="foreword" media-type="application/xhtml+xml"/>
@@ -231,10 +232,12 @@
     <item href="p90.jpg" id="p90" media-type="image/jpeg"/>
     <item href="p94.jpg" id="p94" media-type="image/jpeg"/>
     <item href="pii.jpg" id="pii" media-type="image/jpeg"/>
+    <item href="piii.jpg" id="piii" media-type="image/jpeg"/>
   </manifest>
   <spine toc="ncx">
     <itemref idref="cover" linear="no"/>
     <itemref idref="pageii"/>
+    <itemref idref="pageiii"/>
     <itemref idref="to"/>
     <itemref idref="contents"/>
     <itemref idref="foreword"/>

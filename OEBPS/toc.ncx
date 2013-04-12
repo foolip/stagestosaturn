@@ -244,5 +244,11 @@
       </navLabel>
       <content src="author.htm"/>
     </navPoint>
+    <navPoint id="back">
+      <navLabel>
+        <text>Back Cover</text>
+      </navLabel>
+      <content src="back.htm"/>
+    </navPoint>
   </navMap>
 </ncx>

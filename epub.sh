@@ -8,6 +8,8 @@ rm -f stagestosaturn.epub
 
 cp stylesheet.css OEBPS/
 
+sed "s/REVISION/$(git rev-parse HEAD)/g" about.htm > OEBPS/about.htm
+
 for img in cover.jpg back.jpg p*.jpg; do
     echo "resizing: $img"
     ./resize.sh "$img" "OEBPS/$img" 768 1024

@@ -256,5 +256,11 @@
       </navLabel>
       <content src="back.htm"/>
     </navPoint>
+    <navPoint id="about">
+      <navLabel>
+        <text>About This eBook</text>
+      </navLabel>
+      <content src="about.htm"/>
+    </navPoint>
   </navMap>
 </ncx>

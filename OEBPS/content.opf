@@ -56,6 +56,7 @@
     <item href="author.htm" id="author" media-type="application/xhtml+xml"/>
     <item href="back.jpg" id="back-image" media-type="image/jpeg"/>
     <item href="back.htm" id="back" media-type="application/xhtml+xml"/>
+    <item href="about.htm" id="about" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
     <item href="p100a.jpg" id="p100a" media-type="image/jpeg"/>
     <item href="p100b.jpg" id="p100b" media-type="image/jpeg"/>
@@ -277,6 +278,7 @@
     <itemref idref="index"/>
     <itemref idref="author"/>
     <itemref idref="back" linear="no"/>
+    <itemref idref="about" linear="no"/>
   </spine>
   <guide>
     <reference href="cover.htm" title="Cover" type="cover"/>

@@ -28,6 +28,12 @@
       </navLabel>
       <content src="contents.htm"/>
     </navPoint>
+    <navPoint id="illustrations">
+      <navLabel>
+        <text>Illustrations</text>
+      </navLabel>
+      <content src="contents.htm#illustrations"/>
+    </navPoint>
     <navPoint id="foreword">
       <navLabel>
         <text>Foreword</text>

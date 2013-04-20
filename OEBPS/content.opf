@@ -277,8 +277,8 @@
     <itemref idref="sources"/>
     <itemref idref="index"/>
     <itemref idref="author"/>
-    <itemref idref="back" linear="no"/>
-    <itemref idref="about" linear="no"/>
+    <itemref idref="back"/>
+    <itemref idref="about"/>
   </spine>
   <guide>
     <reference href="cover.htm" title="Cover" type="cover"/>

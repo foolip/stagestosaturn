@@ -36,9 +36,26 @@ def textnodes(root):
 def first(tagName):
     return next(tags(doc, tagName), None)
 
+# return the last element matching tagName
+def last(tagName):
+    ret = None
+    for elm in tags(doc, tagName):
+        ret = elm
+    return ret
+
 # remove an element from its parent
 def remove(node):
     node.parentNode.removeChild(node)
+
+# replace oldElm with newElm
+def replace(oldElm, newElm):
+    oldElm.parentNode.replaceChild(newElm, oldElm)
+
+# replace an element with its children
+def replaceWithChildren(elm):
+    while elm.firstChild:
+        elm.parentNode.insertBefore(elm.firstChild, elm)
+    remove(elm)
 
 # true if node is whitespace or has only whitespace children
 def isempty(node):
@@ -76,23 +93,92 @@ for n in walk(doc):
     if n.nodeType == n.COMMENT_NODE:
         remove(n)
 
-# remove the footer (empty elements and images at end of body)
-for n in reversed(list(walk(body))):
-    if isempty(n):
-        if n.nodeType == n.ELEMENT_NODE and n.tagName == 'img':
-            if n.getAttribute('src') not in \
-                    ['previous.gif', 'next.gif', 'index.gif']:
-                break
-        remove(n)
-    else:
-        break
+# remove header and footer
+remove(first('dl'))
+remove(last('center'))
 
-# remove some empty elements
-for elm in tags(doc):
-    voidTags = set(['br', 'hr', 'img', 'meta'])
-    if elm.tagName not in voidTags and isempty(elm):
-        assert elm.tagName in ['p']
+# remove <font> elements
+for font in tags(doc, 'font'):
+    if font.hasAttribute('face') and font.attributes.length == 1:
+        replaceWithChildren(font)
+    elif font.hasAttribute('color') and font.getAttribute('color') == '#FFFFFF':
+        remove(font)
+    else:
+        assert False # naughty <font> element
+
+# convert subscript 2 to Unicode
+for sub in tags(doc, 'sub'):
+    assert textContent(sub) == '2'
+    replace(sub, doc.createTextNode(u'\u2082'))
+
+# convert [<a name="12"></a><b>12</b>] to
+# <span class="page" id="12"></span>
+for a in tags(doc, 'a'):
+    if not a.hasAttribute('name'):
+        continue
+
+    if re.match(r'^\d+\.\d+$', a.getAttribute('name')):
+        # looks like a note anchor
+        continue
+
+    b = a.nextSibling
+    prevText = a.previousSibling
+    nextText = b.nextSibling
+
+    assert b.tagName == 'b'
+    assert prevText.data[-1] == '['
+    assert nextText.data[0] == ']'
+
+    prevText.data = prevText.data[:-1]
+    nextText.data = nextText.data[1:]
+
+    span = doc.createElement('span')
+    span.setAttribute('class', 'page')
+    span.setAttribute('id', a.getAttribute('name'))
+    span.appendChild(doc.createTextNode(' ')) # polyglot compat
+
+    replace(a, span)
+    remove(b)
+
+# convert <b><sup><a href="#1.3">3</a></sup></b> to [3]
+for a in tags(doc, 'a'):
+    if a.parentNode.tagName == 'sup':
+        sup = a.parentNode
+        if sup.parentNode.tagName == 'b':
+            b = sup.parentNode
+            assert a.firstChild == a.lastChild
+            a.firstChild.data = '[' + a.firstChild.data + ']';
+            replace(b, a);
+
+# remove empty elements (reverse order to get them all)
+for elm in reversed(list(tags(doc))):
+    voidTags = set(['br', 'hr', 'img', 'meta', 'td'])
+    if elm.tagName == 'span':
+        assert elm.getAttribute('class') == 'page'
+    elif elm.tagName not in voidTags and isempty(elm):
+        assert elm.tagName in ['b', 'p']
         remove(elm)
+
+# rewrite IDs to please XML (cannot start with a digit)
+def xmlid(id):
+    if id.isdigit():
+        # page reference
+        return 'p' + id
+    elif re.match(r'^\d+\.\d+$', id):
+        # note reference
+        return 'n' + id
+    else:
+        assert not id[0].isdigit()
+        return id
+
+for elm in tags(doc):
+    if elm.hasAttribute('id'):
+        elm.setAttribute('id', xmlid(elm.getAttribute('id')))
+    if elm.hasAttribute('href'):
+        parts = elm.getAttribute('href').split('#')
+        if len(parts) == 2:
+            parts[1] = xmlid(parts[1])
+        elm.setAttribute('href', '#'.join(parts))
 
 # group figures and their captions
 def figurize(fig):
@@ -158,16 +244,8 @@ for b in tags(doc, 'b'):
 
 # prettify whitespace
 doc.normalize()
-for p in tags(doc, 'p'):
-    for ref in [p, p.nextSibling]:
-        p.parentNode.insertBefore(doc.createTextNode('\n'), ref)
-    if p.firstChild.nodeType == p.TEXT_NODE:
-        p.firstChild.data = p.firstChild.data.lstrip()
-    if p.lastChild.nodeType == p.TEXT_NODE:
-        p.lastChild.data = p.lastChild.data.rstrip()
-doc.normalize()
 for n in textnodes(doc):
-    n.data = re.sub(r'\s*\n\s*', '\n', n.data)
+    n.data = re.sub(r'\s{2,}', '\n', n.data)
 
 # replace ' and " with appropriate left/right single/double quotes
 def quotify(elm):
@@ -192,9 +270,13 @@ def quotify(elm):
     sq = State(lsquo, rsquo)
     dq = State(ldquo, rdquo)
     def replace(m):
-        q = sq if m.group(0) == "'" else dq
+        q = dq if m.group(0) == '"' else sq
         before = m.string[m.start(0)-1] if m.start(0) > 0 else ' '
+        if before == mdash:
+            before = ' '
         after = m.string[m.end(0)] if m.end(0) < len(m.string) else ' '
+        if after == mdash:
+            after = ' '
         context = before + m.group(0) + after
         # non-quoting and ambiguous usage of '
         if q == sq:
@@ -221,12 +303,13 @@ def quotify(elm):
         if context in ['("a', '["a']:
             return dq.open()
         if context in ['\'"[', '."[', ',"[', 'a";', '?"[', 'a")', 'a":',
-                       'a"[', 'a"]', ')"]', ')":', ')";', '.")', '.";']:
+                       'a"[', 'a"]', ')"]', ')":', ')";', '.")', '.";',
+                       hellip+'"[', '!"[']:
             return dq.close()
         assert False
     # join the text children to do the work ...
     text = textContent(elm)
-    text = re.sub(r'[\'"]', replace, text)
+    text = re.sub(r'[`\'"]', replace, text)
     assert sq.isopen in ['no', 'maybe']
     assert dq.isopen in ['no', 'maybe']
     # ... and then spread them out again
@@ -236,7 +319,7 @@ def quotify(elm):
         offset += len(n.data)
 
 for elm in tags(body):
-    if elm.tagName in ['dd', 'h2', 'li', 'p']:
+    if elm.tagName in ['dd', 'dt', 'h1', 'h2', 'h3', 'li', 'p', 'td', 'th']:
         quotify(elm)
 
 # replace ' - ' with em dash
@@ -250,6 +333,8 @@ def ellipsify(m):
         return m.group()
     before = m.string[m.start(0)-1] if m.start(0) > 0 else None
     after = m.string[m.end(0)] if m.end(0) < len(m.string) else None
+    if re.match(r'^\s+\.$', s) and after.isdigit():
+        return m.group()
     quotes = lsquo + rsquo + ldquo + rdquo
     assert before is None or before.isalnum() or before in set(',;?])' + quotes)
     assert after is None or after.isalnum() or after in set(',:?'+ mdash + quotes)
@@ -283,12 +368,13 @@ for elm in tags(doc):
                  'blockquote': [],
                  'body': ['style'],
                  'br': [],
+                 'caption': [],
                  'dd': [],
-                 'div': ['class'],
-                 'dl': [],
+                 'div': ['id', 'class'],
+                 'dl': ['id', 'style'],
                  'dt': [],
                  'h1': [],
-                 'h2': [],
+                 'h2': ['id', 'style'],
                  'h3': ['id'], # FIXME
                  'h4': [], # FIXME
                  'head': [],
@@ -296,15 +382,20 @@ for elm in tags(doc):
                  'html': ['xmlns'],
                  'i': [],
                  'img': ['alt', 'src', 'width'],
-                 'li': [],
+                 'li': ['id'],
                  'meta': ['content', 'http-equiv'],
                  'ol': [],
                  'p': ['class', 'id', 'style'],
                  'pre': [], # FIXME
-                 'span': [],
+                 'span': ['class', 'id'],
                  'style': ['type'],
                  'sup': [],
+                 'table': [],
+                 'tbody': [],
+                 'td': ['class', 'colspan', 'rowspan', 'style'],
+                 'th': [],
                  'title': [],
+                 'tr': ['class'],
                  'ul': []}
     assert elm.tagName in whitelist
     attrs = elm.attributes
@@ -319,8 +410,16 @@ link.setAttribute('href', 'stylesheet.css')
 style = first('style')
 if style != None:
     style.parentNode.insertBefore(link, style)
+    style.parentNode.insertBefore(doc.createTextNode('\n'), style)
 else:
     first('head').appendChild(link)
 
 dst = open(sys.argv[2], 'w+')
-dst.write(html.toxml('utf-8'))
+xml = html.toxml('utf-8')
+xml = xml.replace('<meta content="application/xhtml+xml; charset=utf-8" http-equiv="Content-Type"/>\n' +
+                  '<link href="stylesheet.css" rel="stylesheet"/>',
+                  '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>\n' +
+                  '<link rel="stylesheet" href="stylesheet.css"/>')
+dst.write(xml)
+dst.write('\n')
+dst.close()

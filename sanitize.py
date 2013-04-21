@@ -242,15 +242,19 @@ for b in tags(doc, 'b'):
         # only numbered notes should remain
         assert textContent(b).isdigit() and b.nextSibling.data == '.'
 
-# prettify whitespace
+# prettify whitespace around elements with optional end tags
 doc.normalize()
-for p in tags(doc, 'p'):
-    for ref in [p, p.nextSibling]:
-        p.parentNode.insertBefore(doc.createTextNode('\n'), ref)
-    if p.firstChild.nodeType == p.TEXT_NODE:
-        p.firstChild.data = p.firstChild.data.lstrip()
-    if p.lastChild.nodeType == p.TEXT_NODE:
-        p.lastChild.data = p.lastChild.data.rstrip()
+for elm in tags(doc):
+    if elm.tagName not in ['dd', 'dt', 'li', 'p']:
+        continue
+    for ref in [elm, elm.nextSibling]:
+        elm.parentNode.insertBefore(doc.createTextNode('\n'), ref)
+    if elm.firstChild.nodeType == elm.TEXT_NODE:
+        elm.firstChild.data = elm.firstChild.data.lstrip()
+    if elm.lastChild.nodeType == elm.TEXT_NODE:
+        elm.lastChild.data = elm.lastChild.data.rstrip()
+
+# remove trailing whitespace and collapse multiple newlines
 doc.normalize()
 for n in textnodes(doc):
     n.data = re.sub(r'\s*\n\s*', '\n', n.data)

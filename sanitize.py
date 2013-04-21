@@ -43,6 +43,14 @@ def last(tagName):
         ret = elm
     return ret
 
+# insert elm after ref
+def insertBefore(elm, ref):
+    ref.parentNode.insertBefore(elm, ref)
+
+# insert elm after ref
+def insertAfter(elm, ref):
+    ref.parentNode.insertBefore(elm, ref.nextSibling)
+
 # remove an element from its parent
 def remove(node):
     node.parentNode.removeChild(node)
@@ -54,7 +62,7 @@ def replace(oldElm, newElm):
 # replace an element with its children
 def replaceWithChildren(elm):
     while elm.firstChild:
-        elm.parentNode.insertBefore(elm.firstChild, elm)
+        insertBefore(elm.firstChild, elm)
     remove(elm)
 
 # true if node is whitespace or has only whitespace children
@@ -220,9 +228,7 @@ for a in tags(doc, 'a'):
     if a.hasAttribute('name') and not a.parentNode.hasAttribute('id') and \
             a.parentNode.tagName in whitelist:
         a.parentNode.setAttribute('id', a.getAttribute('name'))
-        while a.firstChild:
-            a.parentNode.insertBefore(a.firstChild, a)
-        remove(a)
+        replaceWithChildren(a)
 
 # add [] around note links
 for a in tags(doc, 'a'):
@@ -247,8 +253,8 @@ doc.normalize()
 for elm in tags(doc):
     if elm.tagName not in ['dd', 'dt', 'li', 'p']:
         continue
-    for ref in [elm, elm.nextSibling]:
-        elm.parentNode.insertBefore(doc.createTextNode('\n'), ref)
+    insertBefore(doc.createTextNode('\n'), elm)
+    insertAfter(doc.createTextNode('\n'), elm)
     if elm.firstChild.nodeType == elm.TEXT_NODE:
         elm.firstChild.data = elm.firstChild.data.lstrip()
     if elm.lastChild.nodeType == elm.TEXT_NODE:
@@ -421,8 +427,8 @@ link.setAttribute('rel', 'stylesheet')
 link.setAttribute('href', 'stylesheet.css')
 style = first('style')
 if style != None:
-    style.parentNode.insertBefore(link, style)
-    style.parentNode.insertBefore(doc.createTextNode('\n'), style)
+    insertBefore(link, style)
+    insertBefore(doc.createTextNode('\n'), style)
 else:
     first('head').appendChild(link)
 

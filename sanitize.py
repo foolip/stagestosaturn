@@ -244,8 +244,16 @@ for b in tags(doc, 'b'):
 
 # prettify whitespace
 doc.normalize()
+for p in tags(doc, 'p'):
+    for ref in [p, p.nextSibling]:
+        p.parentNode.insertBefore(doc.createTextNode('\n'), ref)
+    if p.firstChild.nodeType == p.TEXT_NODE:
+        p.firstChild.data = p.firstChild.data.lstrip()
+    if p.lastChild.nodeType == p.TEXT_NODE:
+        p.lastChild.data = p.lastChild.data.rstrip()
+doc.normalize()
 for n in textnodes(doc):
-    n.data = re.sub(r'\s{2,}', '\n', n.data)
+    n.data = re.sub(r'\s*\n\s*', '\n', n.data)
 
 # replace ' and " with appropriate left/right single/double quotes
 def quotify(elm):
@@ -415,11 +423,6 @@ else:
     first('head').appendChild(link)
 
 dst = open(sys.argv[2], 'w+')
-xml = html.toxml('utf-8')
-xml = xml.replace('<meta content="application/xhtml+xml; charset=utf-8" http-equiv="Content-Type"/>\n' +
-                  '<link href="stylesheet.css" rel="stylesheet"/>',
-                  '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>\n' +
-                  '<link rel="stylesheet" href="stylesheet.css"/>')
-dst.write(xml)
+dst.write(html.toxml('utf-8'))
 dst.write('\n')
 dst.close()

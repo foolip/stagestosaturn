@@ -106,15 +106,6 @@ first('meta').setAttribute('content', 'application/xhtml+xml; charset=utf-8')
 # remove useless attributes
 if body.hasAttribute('bgcolor'):
     body.removeAttribute('bgcolor')
-for img in tags(doc, 'img'):
-    for attr in ['width', 'height']:
-        if img.hasAttribute(attr) and not img.getAttribute(attr).endswith('%'):
-            img.removeAttribute(attr)
-
-# remove comments
-for n in walk(doc):
-    if n.nodeType == n.COMMENT_NODE:
-        remove(n)
 
 # remove header and footer
 remove(first('dl'))
@@ -202,66 +193,6 @@ for elm in tags(doc):
         if len(parts) == 2:
             parts[1] = xmlid(parts[1])
         elm.setAttribute('href', '#'.join(parts))
-
-# group figures and their captions
-def figurize(fig):
-    def nextElement(ref):
-        n = ref.nextSibling
-        while n and n.nodeType != n.ELEMENT_NODE:
-            assert isempty(n)
-            n = n.nextSibling
-        return n
-    imgs = list(tags(fig, 'img'))
-    if len(imgs) > 0:
-        caption = nextElement(fig)
-        if caption.tagName == 'p':
-            hr = nextElement(caption)
-        else:
-            hr = caption
-            caption = None
-        if hr.tagName == 'hr':
-            fig.tagName = 'div'
-            fig.setAttribute('class', 'figure')
-            if caption != None:
-                caption.setAttribute('class', 'caption')
-                fig.appendChild(caption)
-            remove(hr)
-            return True
-    return False
-
-for p in tags(doc, 'p'):
-    if p.hasAttribute('align') and p.getAttribute('align') == 'center':
-        if figurize(p):
-            p.removeAttribute('align')
-
-for center in tags(doc, 'center'):
-    figurize(center)
-
-# move <a name="foo"> anchors to parent <? id="foo">
-for a in tags(doc, 'a'):
-    whitelist = set(['p', 'h3'])
-    if a.hasAttribute('name') and not a.parentNode.hasAttribute('id') and \
-            a.parentNode.tagName in whitelist:
-        a.parentNode.setAttribute('id', a.getAttribute('name'))
-        replaceWithChildren(a)
-
-# add [] around note links
-for a in tags(doc, 'a'):
-    href = a.getAttribute('href')
-    if href.startswith('#explanation') or href.startswith('#source'):
-        text = textContent(a)
-        remove(a.firstChild)
-        assert a.firstChild == None
-        a.appendChild(doc.createTextNode('[%s]' % text))
-
-# remove useless <b>
-for b in tags(doc, 'b'):
-    if re.match(r'^\W*$', textContent(b)):
-        b.parentNode.replaceChild(b.firstChild, b)
-        assert b.firstChild == None
-    else:
-        # only numbered notes should remain
-        assert textContent(b).isdigit() and b.nextSibling.data == '.'
 
 # prettify whitespace around elements with optional end tags
 doc.normalize()
@@ -353,34 +284,6 @@ def quotify(elm):
 for elm in tags(body):
     if elm.tagName in ['dd', 'dt', 'h1', 'h2', 'h3', 'li', 'p', 'td', 'th']:
         quotify(elm)
-
-# replace ' - ' with em dash
-for n in textnodes(body):
-    n.data = re.sub(r'\s+-\s+', mdash, n.data, flags=re.M)
-
-# replace '. . .' with ellipsis
-def ellipsify(m):
-    s = re.sub(r'\s+', ' ', m.group())
-    if s in ['.', '. ']:
-        return m.group()
-    before = m.string[m.start(0)-1] if m.start(0) > 0 else None
-    after = m.string[m.end(0)] if m.end(0) < len(m.string) else None
-    if re.match(r'^\s+\.$', s) and after.isdigit():
-        return m.group()
-    quotes = lsquo + rsquo + ldquo + rdquo
-    assert before is None or before.isalnum() or before in set(',;?])' + quotes)
-    assert after is None or after.isalnum() or after in set(',:?'+ mdash + quotes)
-    suffix = '' if (after is None or after in set(',:?' + mdash + rsquo + rdquo)) else ' '
-    if s.strip() == '. . .':
-        prefix = '' if (before is None or before in set(lsquo + ldquo)) else ' '
-        return prefix + hellip + suffix
-    elif s.rstrip() == '. . . .':
-        assert before.isalpha()
-        return '. ' + hellip + suffix
-    assert False
-
-for n in textnodes(body):
-    n.data = re.sub(r'[\s.]*[.][\s.]*', ellipsify, n.data, flags=re.M)
 
 # assert that the text content is to our liking
 text = textContent(body)

@@ -24,6 +24,20 @@ a {
     color: #009;
     text-decoration: none;
 }
+hr {
+    border: 0;
+    border-top: 1px solid black;
+    height: 0;
+    margin-left: 0;
+    width: 25%;
+}
+table {
+    border-spacing: 0;
+    margin: 1em 0;
+}
+td {
+    vertical-align: top;
+}
 .figure {
     margin: 1em 0;
     page-break-inside: avoid;
@@ -43,18 +57,4 @@ a {
 }
 .figure .caption i {
     font-style: normal;
-}
-hr {
-    border: 0;
-    border-top: 1px solid black;
-    height: 0;
-    margin-left: 0;
-    width: 25%;
-}
-table {
-    border-spacing: 0;
-    margin: 1em 0;
-}
-td {
-    vertical-align: top;
 }

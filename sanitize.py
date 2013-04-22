@@ -117,6 +117,15 @@ first('meta').setAttribute('content', 'application/xhtml+xml; charset=utf-8')
 # remove useless attributes
 if body.hasAttribute('bgcolor'):
     body.removeAttribute('bgcolor')
+for img in tags(doc, 'img'):
+    for attr in ['width', 'height']:
+        if img.hasAttribute(attr):
+            img.removeAttribute(attr)
+
+# remove comments
+for n in walk(doc):
+    if n.nodeType == n.COMMENT_NODE:
+        remove(n)
 
 # remove header and footer
 remove(first('dl'))
@@ -327,7 +336,7 @@ for elm in tags(doc):
                  'hr': [],
                  'html': ['xmlns'],
                  'i': [],
-                 'img': ['alt', 'src', 'width'],
+                 'img': ['alt', 'src', 'style'],
                  'li': ['id'],
                  'meta': ['content', 'http-equiv'],
                  'ol': [],

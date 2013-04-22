@@ -51,6 +51,21 @@ def insertBefore(elm, ref):
 def insertAfter(elm, ref):
     ref.parentNode.insertBefore(elm, ref.nextSibling)
 
+# pad element with char, if it's not already there
+def pad(elm, char):
+    prev = elm.previousSibling
+    if prev and prev.nodeType == elm.TEXT_NODE:
+        if prev.data[-1] != char:
+            prev.data = prev.data + char
+    else:
+        insertBefore(doc.createTextNode(char), elm)
+    next = elm.nextSibling
+    if next and next.nodeType == elm.TEXT_NODE:
+        if next.data[0] != char:
+            next.data = char + next.data
+    else:
+        insertAfter(doc.createTextNode(char), elm)
+
 # remove an element from its parent
 def remove(node):
     node.parentNode.removeChild(node)
@@ -253,8 +268,7 @@ doc.normalize()
 for elm in tags(doc):
     if elm.tagName not in ['dd', 'dt', 'li', 'p']:
         continue
-    insertBefore(doc.createTextNode('\n'), elm)
-    insertAfter(doc.createTextNode('\n'), elm)
+    pad(elm, '\n')
     if elm.firstChild.nodeType == elm.TEXT_NODE:
         elm.firstChild.data = elm.firstChild.data.lstrip()
     if elm.lastChild.nodeType == elm.TEXT_NODE:

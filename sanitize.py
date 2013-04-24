@@ -347,6 +347,7 @@ for a in iterTags(doc, 'a'):
     remove(b)
 
 # convert <b><sup><a href="#1.3">3</a></sup></b> to [3]
+noteLinks = set()
 for a in iterTags(doc, 'a'):
     if a.parentNode.tagName == 'sup':
         sup = a.parentNode
@@ -355,6 +356,7 @@ for a in iterTags(doc, 'a'):
             assert a.firstChild == a.lastChild
             a.firstChild.data = '[' + a.firstChild.data + ']';
             replace(b, a);
+            noteLinks.add(a)
 
 # rewrite IDs to please XML (cannot start with a digit)
 def xmlid(id):
@@ -381,7 +383,7 @@ removeEmpty(['b', 'i', 'li', 'p', 'sub', 'sup'])
 
 for elm in iterTags(body):
     if elm.tagName in ['dd', 'dt', 'h1', 'h2', 'h3', 'li', 'p', 'td', 'th']:
-        quotify(elm)
+        quotify(elm, lambda n: n in noteLinks)
 assert re.search(r'[`\'"]', textContent(body)) == None
 
 #dashify(body)

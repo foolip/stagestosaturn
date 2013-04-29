@@ -18,10 +18,10 @@ OEBPS/about.htm: about.htm
 	sed "s/REVISION/$(REVISION)/g" $< > $@
 
 OEBPS/%.htm: %.htm
-	PYTHONPATH=html5lib-python python sanitize.py $< $@
+	./sanitize.py $< $@
 
 OEBPS/%.html: %.html
-	PYTHONPATH=html5lib-python python sanitize.py $< $@
+	./sanitize.py $< $@
 
 OEBPS/%.gif: %.gif
 	cp $< $@
